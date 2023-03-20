@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container{
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+ul{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    padding: 20px 0;
+    position: fixed;
+    inset: 0;
+}
+
+header .logo{
+    font-weight: 700;
+    color: #4831D4;
+}
+
+header ul{
+    display: flex;
+    gap: 50px;
+}
+
+header ul li a{
+    color: rgb(124, 122, 122);
+    font-size: 14px;
+}
+
+/* hero-section */
+.hero-bg{
+    position: absolute;
+    height: 100%;
+    width: auto;
+    top: 0;
+    right: 0;
+    z-index: -1;
+}
+
+.hero{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.hero .hero-text{
+    width: 516px;
+}
+
+.hero .hero-text h1{
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 45px;
+}
+
+.hero .hero-text h1 span{
+    color: #4831D4;
+}
+
+.hero .hero-text p{
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 26px;
+    margin: 20px 0 45px 0;
+    color: #707070;
+}
+
+.hero .hero-img{
+    width: 400px;
+}
+
+.hero .hero-img svg{
+    width: 100%;
+    height: 100%;
+}
+
+.btn{
+    text-decoration: none;
+    color: white;
+    background-color: #4831D4;
+    padding: 15px 30px;
+    border-radius: 7px;
+    font-size: 14px;
+}
+
+@media only screen and (max-width: 1200px) {
+}
+
+@media only screen and (max-width: 889px) {
+    h1{
+        font-size: 30px;
+        line-height: 45px;
+    }
+
+    p{
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .hero .hero-text{
+        width: 400px;
+    }
+
+    .hero .hero-img svg{
+        width: 350px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .hero{
+        display: flex;
+        flex-direction: column;
+        margin-top: 100px;
+        gap: -100px
+    }
+    .hero .hero-img svg{
+        width: 350px;
+        margin-top: -100px;
+    }
+
+    .hero .hero-text{
+        width: 400px;
+    }
+
+    h1{
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    p{
+        font-size: 14px;
+        line-height: 18px;
+    }
+}

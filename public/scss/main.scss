@@ -1,0 +1,17 @@
+@import "./Utils/color";
+@import "./pages/index";
+@import "./pages/login";
+@import "./pages/register";
+@import "./pages/_succes";
+
+
+
+// dashboard
+
+@import "./dashboard/home";
+@import "./dashboard/setting";
+@import "./dashboard/employee.scss";
+@import "./dashboard/qr.scss";
+@import "./dashboard/details.scss";
+@import "./dashboard/supports.scss";
+@import "./dashboard/message.scss";
