@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=BioRhyme&display=swap');
+
+
+a:active{
+  color: currentColor;
+}
+a:hover{
+  text-decoration: none;
+  color: currentColor;
+}
+p{
+  margin-bottom: 0;
+  line-height: 24px;
+}
+
+.sidebar {
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  box-shadow: 2px 0px 38px rgba(225, 225, 237, 0.6);
+  transition: all .3s ease-in;
+  background: white;
+  z-index: 999;
+  .logo{
+    padding: 20px 0 20px 28px;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    margin-top: 25px;
+    .menu-heading {
+      padding-left: 28px;
+      p{
+        font-size: 12px;
+        color: rgba(0, 0, 0, 0.33);
+        letter-spacing: 0.175em;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+    }
+    li {
+      padding: 15px 0;
+      a {
+        position: relative;
+        font-size: 18px;
+        font-weight: 400;
+        color: #91A0AE;
+        padding: 0 28px;
+        transition: all .4s ease;
+        &:hover {
+          color: #557100;
+          &::before {
+            opacity: 1;
+          }
+        }
+        &.active {
+          color: $primary-color;
+          &::before {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+main{
+  background: #F8FAFE;
+  margin-left: 260px;
+  padding: 0 40px;
+  transition: all .3s ease-in;
+  .dashboard-navbar{
+    height: 80px;
+    padding: 20px 0;
+    .nav-items{
+      display: flex;
+      justify-content: end;
+      .items{
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        .profile{
+          position: relative;
+          .profile-pic{
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            p{
+              font-size: 16px;
+              color: #000;
+            }
+            img{
+              height: 35px;
+              width: 35px;
+              border-radius: 50%;
+              object-fit: cover;
+            }
+            i{
+              font-size: 14px;
+              color: #595959;
+            }
+          }
+        }
+        a{
+          display: flex;
+        }
+      }
+    }
+  }
+  //cards
+  .cards-wrapper{
+    margin-top: 30px;
+    h1{
+      font-weight: 600;
+      font-size: 28px;
+      color: #595959;
+    }
+    .cards{
+      display: flex;
+      align-items: center;
+      margin-top: 30px;
+      justify-content: space-between;
+      gap: 40px;
+      .cards-item{
+        background: #FFFFFF;
+        box-shadow: 3px 5px 40px rgba(225, 225, 237, 0.6);
+        border-radius: 11px;
+        padding: 20px;
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: space-between;
+        .card-info{
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          p{
+            color: rgba(16, 49, 79, 0.46);
+            font-size: 16px;
+            font-weight: 500;
+          }
+          h1{
+            font-size: 35px;
+            font-weight: 600;
+            color: #557100;
+          }
+        }
+      }
+    }
+  }
+
+  //tabs
+  .tabs{
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    .tabs-btn{
+      background: #FFFFFF;
+      box-shadow: 3px 5px 40px rgba(225, 225, 237, 0.6);
+      border-radius: 7px;
+      padding: 10px 20px;
+      color: rgba(25, 25, 25, 0.67);
+      font-weight: 600;
+      font-size: 16px;
+      flex: 1;
+      border: none;
+      &.active{
+        background: #557100;
+        color: white;
+      }
+    }
+  }
+
+  .content-wrapper{
+    margin-top: 50px;
+    display: flex;
+    gap: 35px;
+    flex-wrap: wrap;
+    .item{
+      background: #FFFFFF;
+      box-shadow: 3px 5px 40px rgba(225, 225, 237, 0.6);
+      border-radius: 11px;
+      overflow-x: hidden;
+      .img{
+        height: 190px;
+        img{
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .info-wrapper{
+        padding: 20px;
+        .info{
+          display: flex;
+          align-items: start;
+          gap: 20px;
+          justify-content: space-between;
+          .title{
+            h3{
+              color: #000;
+              font-size: 18px;
+              font-weight: 600;
+              line-height: 100%;
+              margin: 0;
+            }
+            p{
+              color: rgba(0, 0, 0, 0.33);
+              font-size: 13px;
+              font-weight: 600;
+            }
+          }
+          .price{
+            color: #FF1E1E;
+            font-size: 18px;
+            font-weight: 600;
+          }
+        }
+        .quantity{
+          color: #000000;
+          font-size: 16px;
+          font-weight: 600;
+          margin: 20px 0;
+        }
+        .details-btn{
+          background: #F8FAFE;
+          border: 1px solid #557100;
+          border-radius: 50px;
+          color: #557100;
+          padding: 7px 30px;
+        }
+      }
+    }
+  }
+
+  #fruits{
+    display: none;
+  }
+  #cash-crops{
+    display: none;
+  }
+  #food-crops{
+    display: none;
+  }
+  #dairy{
+    display: none;
+  }
+  #non-veg{
+    display: none;
+  }
+}
