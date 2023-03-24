@@ -1,5 +1,6 @@
 const express =require('express');
 const db=require('./connection')
+const {User} = require('./models/Model')
 
 require('dotenv').config;
 
