@@ -9,7 +9,7 @@
         font-size: 14px;
         color: #414A4C;
         a{
-            color: #557100;
+            color :$primarycolor;
         }
     }
 }
@@ -113,7 +113,7 @@
     }
     .registor-side-img{
         width: 50%;
-        height:auto;
+        height:146%;
         background: url('/styles/images/vegetables.jpg') no-repeat;
         background-size: cover;
         display: fixed;
@@ -134,7 +134,7 @@
                 background-size: cover;
                 width: 90px;
                 height: 90px;
-                top: -35%;
+                top: -45%;
             }
             p{
                 color: white;
