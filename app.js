@@ -16,8 +16,10 @@ app.use( express.static( "public" ) )
 app.use('/uploads', express.static('uploads'))
 
 const indexRoute = require('./routes/index')
+const dashboardRoute = require('./routes/dashboard')
 
 app.use('/',indexRoute);
+app.use('/dashboard',dashboardRoute);
 
 app.listen({port:2000},async()=>{
     console.log("The server is running in http://localhost:2000/")

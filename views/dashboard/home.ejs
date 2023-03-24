@@ -1,0 +1,456 @@
+<%- include("../components/head") %>
+<body>
+    <%- include("../components/dashboard/sidebar") %>
+    <main>
+        <%- include("../components/dashboard/navbar") %>
+
+        <section class="cards-wrapper">
+            <div class="cards">
+                <div class="cards-item">
+                    <div class="card-info">
+                        <h1>400</h1>
+                        <p>Total Lost Post</p>
+                    </div>
+                    <svg width="88" height="88" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14.625 9.625V67.375H72.375V9.625H14.625ZM62.75 57.75H24.25V54.5417H62.75V57.75ZM62.75 51.3333H24.25V48.125H62.75V51.3333ZM62.75 38.5H24.25V19.25H62.75V38.5Z" fill="#7E7E7E" fill-opacity="0.5"/>
+                    </svg>                        
+                </div>
+                <div class="cards-item">
+                    <div class="card-info">
+                        <h1>200</h1>
+                        <p>Total Farmer</p>
+                    </div>
+                    <svg width="88" height="88" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M37.1799 36.63C38.3624 37.2625 39.7649 37.62 41.2499 37.62C42.7349 37.62 44.1374 37.2625 45.3199 36.63C45.7049 36.4375 46.1449 36.8775 45.8974 37.2625C44.9074 38.775 43.2024 39.7925 41.2499 39.7925C39.2974 39.7925 37.5924 38.775 36.6024 37.2625C36.3549 36.8775 36.7674 36.41 37.1799 36.63ZM40.3699 28.325L38.9124 33.0275C38.6099 33.99 39.3249 34.9525 40.3424 34.9525H42.4874C43.5049 34.9525 44.2199 33.99 43.9174 33.0275L42.4874 28.325C42.4175 28.0989 42.2769 27.901 42.0864 27.7606C41.8959 27.6201 41.6654 27.5443 41.4287 27.5443C41.192 27.5443 40.9615 27.6201 40.7709 27.7606C40.5804 27.901 40.4399 28.0989 40.3699 28.325ZM30.7449 28.2425C30.954 27.3759 31.4538 26.6072 32.1611 26.0646C32.8684 25.522 33.7403 25.2383 34.6315 25.2608C35.5226 25.2833 36.3791 25.6107 37.0581 26.1883C37.737 26.766 38.1974 27.559 38.3624 28.435C38.3833 28.5287 38.3826 28.626 38.3603 28.7194C38.3381 28.8128 38.2948 28.8999 38.2338 28.9742C38.1729 29.0484 38.0958 29.1077 38.0085 29.1477C37.9212 29.1877 37.8259 29.2073 37.7299 29.205H37.5374C37.6373 28.8333 37.6505 28.4436 37.5758 28.066C37.5011 27.6885 37.3406 27.3331 37.1067 27.0274C36.8728 26.7218 36.5717 26.474 36.2268 26.3032C35.8819 26.1324 35.5023 26.0432 35.1174 26.0425C34.7325 26.0432 34.353 26.1324 34.008 26.3032C33.6631 26.474 33.3621 26.7218 33.1282 27.0274C32.8943 27.3331 32.7338 27.6885 32.6591 28.066C32.5844 28.4436 32.5975 28.8333 32.6974 29.205H31.4874C30.9649 29.205 30.6074 28.7375 30.7449 28.2425ZM51.7549 28.2425C51.3424 26.5375 49.8024 25.2725 47.9599 25.2725C46.0349 25.2725 44.4674 26.6475 44.1374 28.435C44.0549 28.8475 44.3574 29.205 44.7699 29.205H44.9624C44.908 28.9892 44.8803 28.7676 44.8799 28.545C44.8799 27.17 45.9799 26.0425 47.3824 26.0425C47.7673 26.0432 48.1469 26.1324 48.4918 26.3032C48.8367 26.474 49.1378 26.7218 49.3717 27.0274C49.6056 27.3331 49.7661 27.6885 49.8408 28.066C49.9155 28.4436 49.9023 28.8333 49.8024 29.205H51.0124C51.5074 29.205 51.8649 28.7375 51.7549 28.2425Z" fill="#CFCFCF"/>
+                        <path d="M36.5476 28.545C36.5476 27.7475 35.9151 27.115 35.1176 27.115C34.9191 27.1144 34.7225 27.1546 34.5401 27.2333C34.5824 27.2757 34.6155 27.3264 34.6375 27.3821C34.6595 27.4378 34.6699 27.4974 34.668 27.5573C34.6661 27.6172 34.652 27.676 34.6266 27.7303C34.6012 27.7845 34.565 27.833 34.5202 27.8727C34.4754 27.9125 34.4229 27.9427 34.366 27.9614C34.3091 27.9802 34.249 27.9871 34.1894 27.9819C34.1297 27.9766 34.0717 27.9592 34.019 27.9307C33.9663 27.9022 33.92 27.8633 33.8829 27.8163C33.7607 28.0263 33.6939 28.2638 33.6886 28.5067C33.6833 28.7496 33.7397 28.9899 33.8526 29.205H36.3826C36.4651 29.0125 36.5476 28.765 36.5476 28.545ZM46.8794 27.2058C47.1506 27.0983 47.4484 27.077 47.7321 27.1448C48.0159 27.2126 48.2718 27.3663 48.4651 27.5848C48.6584 27.8034 48.7796 28.0762 48.8123 28.3661C48.845 28.656 48.7875 28.9489 48.6476 29.205H46.1176C45.996 28.9738 45.9399 28.7138 45.9555 28.453C45.971 28.1922 46.0575 27.9407 46.2056 27.7255C46.2323 27.787 46.2727 27.8416 46.3238 27.8851C46.3748 27.9286 46.4351 27.9599 46.5 27.9766C46.565 27.9932 46.6329 27.9948 46.6986 27.9812C46.7642 27.9676 46.8259 27.9391 46.8789 27.898C46.9319 27.8569 46.9748 27.8043 47.0043 27.7441C47.0338 27.6838 47.0492 27.6177 47.0492 27.5506C47.0493 27.4836 47.034 27.4174 47.0046 27.3571C46.9751 27.2969 46.9323 27.2469 46.8794 27.2058ZM31.6196 23.8645C31.3007 23.8622 30.9902 23.7612 30.7309 23.5754C30.4716 23.3897 30.2761 23.1282 30.1713 22.827C30.0665 22.5257 30.0574 22.1994 30.1454 21.8928C30.2333 21.5862 30.414 21.3144 30.6626 21.1145C32.3508 19.9302 34.4188 19.4157 36.4651 19.6708C36.8566 19.7367 37.2078 19.9504 37.4461 20.2679C37.6845 20.5853 37.7918 20.9822 37.7459 21.3765C37.7 21.7708 37.5045 22.1324 37.1996 22.3866C36.8947 22.6409 36.5038 22.7683 36.1076 22.7425C34.8624 22.5944 33.6046 22.8862 32.5519 23.5675C32.2805 23.7649 31.9524 23.8691 31.6169 23.8645H31.6196ZM50.8614 23.8865C50.5221 23.8872 50.1922 23.7749 49.9236 23.5675C48.8722 22.883 47.6133 22.5909 46.3679 22.7425C46.1662 22.7662 45.9618 22.7499 45.7664 22.6945C45.571 22.6392 45.3884 22.5459 45.2291 22.42C45.0697 22.2941 44.9368 22.1381 44.8377 21.9608C44.7387 21.7835 44.6755 21.5884 44.6519 21.3868C44.6282 21.1851 44.6445 20.9807 44.6999 20.7853C44.7552 20.5899 44.8485 20.4073 44.9744 20.248C45.1002 20.0886 45.2563 19.9556 45.4336 19.8566C45.6109 19.7576 45.8059 19.6944 46.0076 19.6708C48.0537 19.4191 50.1205 19.9334 51.8101 21.1145C52.0648 21.3121 52.2513 21.5844 52.3435 21.8932C52.4357 22.202 52.4291 22.532 52.3246 22.8369C52.22 23.1417 52.0227 23.4063 51.7604 23.5935C51.498 23.7808 51.1837 23.8813 50.8614 23.881V23.8865Z" fill="#CFCFCF"/>
+                        <path d="M74.5525 85.25H11C10.2707 85.25 9.57123 84.9603 9.0555 84.4445C8.53978 83.9288 8.25004 83.2293 8.25004 82.5V72.7897C8.24037 66.8714 9.82915 61.0603 12.8486 55.9701C15.868 50.88 20.2061 46.6997 25.4045 43.8707C24.9485 43.0002 24.6021 42.0765 24.3733 41.1207C20.673 40.688 17.2625 38.9048 14.7957 36.113C12.3289 33.3211 10.9793 29.7171 11.0055 25.9916C11.0317 22.2662 12.432 18.6815 14.9379 15.9246C17.4438 13.1678 20.879 11.4328 24.585 11.0522C26.5193 8.47624 29.0264 6.38564 31.908 4.9458C34.7897 3.50597 37.9668 2.75641 41.1882 2.75641C44.4095 2.75641 47.5867 3.50597 50.4683 4.9458C53.35 6.38564 55.8571 8.47624 57.7913 11.0522C60.8943 11.3595 63.8265 12.6183 66.1865 14.6564C68.5465 16.6944 70.2189 19.4121 70.9748 22.4372C71.423 24.2357 71.6238 25.9847 71.4588 27.7392C72.2675 28.0326 72.9662 28.5681 73.4598 29.2727C73.9533 29.9773 74.2177 30.8169 74.217 31.6772C74.2171 30.625 74.6131 29.6114 75.3265 28.8379C76.0399 28.0644 77.0182 27.5877 78.067 27.5027H78.364C79.4549 27.5128 80.4983 27.9506 81.2698 28.722C82.0412 29.4935 82.479 30.5368 82.489 31.6277V51.0867C82.4869 52.8438 81.7879 54.5283 80.5455 55.7707C79.3031 57.0131 77.6186 57.7121 75.8615 57.7142H74.9265V59.8592C74.9265 60.1893 74.877 60.5137 74.7835 60.8272C76.1293 60.9762 77.3729 61.6163 78.2761 62.6251C79.1793 63.6338 79.6786 64.9403 79.6785 66.2943V79.871C79.7088 81.2631 79.1865 82.6106 78.2259 83.6187C77.2653 84.6267 75.9445 85.2132 74.5525 85.25ZM68.75 34.375L68.7335 34.3997V43.9202C68.7423 44.6367 68.4764 45.3294 67.9906 45.8561C67.5048 46.3828 66.8359 46.7036 66.121 46.7527H65.978C65.2487 46.7527 64.5492 46.463 64.0335 45.9473C63.5178 45.4316 63.228 44.7321 63.228 44.0027V36.3577L63.1675 36.399V31.6525C63.1675 31.13 62.8925 30.6625 62.4745 30.4122C62.3073 30.3236 62.1241 30.2694 61.9355 30.2527H61.8393C61.4746 30.2527 61.1249 30.3976 60.867 30.6555C60.6092 30.9133 60.4643 31.2631 60.4643 31.6277V51.0867C60.4632 51.5963 60.5628 52.101 60.7572 52.5719C60.9517 53.0428 61.2373 53.4707 61.5976 53.831C61.9578 54.1913 62.3857 54.4768 62.8567 54.6713C63.3276 54.8658 63.8323 54.9653 64.3418 54.9642H68.0268V59.8592C68.0282 60.0193 68.0924 60.1723 68.2056 60.2855C68.3187 60.3986 68.4718 60.4628 68.6318 60.4642H71.5578C71.7178 60.4628 71.8709 60.3986 71.984 60.2855C72.0972 60.1723 72.1614 60.0193 72.1628 59.8592V54.9725H75.8478C76.3573 54.9736 76.862 54.874 77.3329 54.6796C77.8039 54.4851 78.2318 54.1995 78.592 53.8392C78.9523 53.479 79.2379 53.0511 79.4324 52.5801C79.6268 52.1092 79.7264 51.6045 79.7253 51.095V31.625C79.7182 31.2625 79.5711 30.9169 79.3148 30.6605C79.0584 30.4042 78.7128 30.257 78.3503 30.25L78.3915 30.2527H78.2953C77.9389 30.2833 77.6073 30.4479 77.3675 30.7133C77.1276 30.9786 76.9973 31.3251 77.0028 31.6827V43.9202C77.0115 44.6367 76.7457 45.3294 76.2599 45.8561C75.7741 46.3828 75.1051 46.7036 74.3903 46.7527H74.2473C73.5179 46.7527 72.8185 46.463 72.3027 45.9473C71.787 45.4316 71.4973 44.7321 71.4973 44.0027V31.6827C71.5028 31.3251 71.3725 30.9786 71.1326 30.7133C70.8927 30.4479 70.5612 30.2833 70.2048 30.2527H70.1085C69.8003 30.2527 69.5009 30.3562 69.2585 30.5467C69.0161 30.7372 68.8448 31.0037 68.772 31.3032C68.7574 31.4099 68.7501 31.5174 68.75 31.625V34.375ZM65.23 59.8592V59.4302C64.9055 58.8512 64.5596 58.2843 64.1933 57.7308C62.8931 57.7086 61.6279 57.3051 60.555 56.5702V79.75H62.04C62.1115 79.376 62.2408 79.0212 62.425 78.6995C62.1214 78.1804 61.9607 77.5901 61.9592 76.9887C61.9578 76.3874 62.1157 75.7963 62.4168 75.2757C62.1138 74.7525 61.9556 74.158 61.9585 73.5534C61.9614 72.9488 62.1253 72.3558 62.4333 71.8355C62.1187 71.2867 61.9634 70.661 61.985 70.0287C62.0345 68.2467 63.4645 66.902 65.1255 66.7342C65.2404 66.7036 65.3587 66.6879 65.4775 66.6875H65.945V61.9272C65.4827 61.337 65.231 60.609 65.23 59.8592ZM44.9323 48.0425H37.4963C38.2113 49.148 39.5588 49.94 41.2225 49.94C42.8643 49.94 44.209 49.148 44.9323 48.0425ZM71.445 63.2142H68.695V66.6875H71.445V63.2142ZM74.195 69.4375H65.7525C65.662 69.4558 65.5699 69.465 65.4775 69.465C65.032 69.465 64.7433 69.8115 64.735 70.1058V70.1223C64.7348 70.2422 64.7639 70.3603 64.82 70.4663C64.8762 70.5723 64.9575 70.6628 65.0568 70.73C65.2417 70.8591 65.3921 71.0318 65.4946 71.2327C65.597 71.4336 65.6485 71.6567 65.6444 71.8822C65.6403 72.1078 65.5808 72.3288 65.4712 72.5259C65.3615 72.723 65.205 72.8901 65.0155 73.0125C64.9232 73.0721 64.8469 73.1534 64.7933 73.2493C64.7396 73.3451 64.7101 73.4527 64.7075 73.5625C64.7075 73.81 64.8258 73.9942 64.9908 74.0987C65.1876 74.2206 65.3505 74.3901 65.4644 74.5916C65.5783 74.7932 65.6394 75.0202 65.6422 75.2517C65.6449 75.4832 65.5892 75.7116 65.4801 75.9158C65.371 76.12 65.2122 76.2933 65.0183 76.4197C64.9251 76.4793 64.848 76.5609 64.7938 76.6573C64.7396 76.7537 64.71 76.8619 64.7075 76.9725C64.7075 77.22 64.8258 77.4043 64.9908 77.5088C65.1779 77.6245 65.3344 77.7835 65.4473 77.9723C65.5602 78.1611 65.6262 78.3742 65.6397 78.5938C65.6531 78.8134 65.6137 79.033 65.5247 79.2341C65.4358 79.4353 65.2998 79.6122 65.1283 79.75H74.195V69.4375ZM52.2225 79.75V72.325C52.2105 71.9594 52.0581 71.6125 51.7969 71.3564C51.5357 71.1003 51.1858 70.9548 50.82 70.95H31.735C30.965 70.95 30.36 71.555 30.36 72.325V79.75H52.2225ZM22 79.75V53.1602C19.3846 55.7152 17.3075 58.7683 15.8915 62.1392C14.4755 65.5102 13.7492 69.1307 13.7555 72.787L13.75 79.75H22ZM27.665 48.906V62.0675C27.665 62.7 28.16 63.195 28.7925 63.195H53.735C54.3675 63.195 54.8625 62.7 54.8625 62.0675V48.9555C54.01 48.4688 53.1273 48.026 52.2225 47.63V57.9535C52.2225 59.2102 50.82 59.9198 49.8025 59.2103L44.3658 55.4152L42.8698 56.749C42.4111 57.1537 41.8205 57.3769 41.2088 57.3769C40.5971 57.3769 40.0065 57.1537 39.5478 56.749L39.5368 56.7407L38.0655 55.4263L32.6425 59.2103C31.625 59.9198 30.2225 59.1827 30.2225 57.981V47.63C29.3484 48.0095 28.4948 48.4373 27.665 48.906ZM41.2225 52.69C40.3838 52.69 39.5725 52.5525 38.8108 52.2967C39.05 52.58 39.3058 52.8468 39.5835 53.097L41.2088 54.5462L42.834 53.097C43.109 52.8495 43.362 52.5855 43.5985 52.305C42.8478 52.5525 42.0475 52.69 41.2225 52.69ZM28.5395 23.705V23.7325L28.6303 25.0855L27.3488 25.2505C25.7923 25.4485 24.53 26.8345 24.53 28.578C24.53 30.4672 26.0068 31.9302 27.7475 31.9302H27.775L29.073 31.9192L29.4745 38.148C29.887 42.372 33.1238 45.2925 36.9875 45.2925H45.8425C49.7063 45.2925 52.943 42.372 53.3555 38.148L53.768 32.0182L54.9423 31.9192C56.5565 31.779 57.8875 30.3655 57.8875 28.578C57.8875 26.939 56.7683 25.6107 55.341 25.2972L54.1585 25.036L54.2878 23.595C54.3538 21.2162 52.503 19.25 50.3525 19.25H32.4775C30.1868 19.25 28.3305 21.2685 28.5395 23.705Z" fill="#CFCFCF"/>
+                    </svg>                        
+                </div>
+                <div class="cards-item">
+                    <div class="card-info">
+                        <h1>10</h1>
+                        <p>Today Categories</p>
+                    </div>
+                    <svg width="88" height="88" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14.6667 40.3333H36.6667C37.6391 40.3333 38.5718 39.947 39.2594 39.2594C39.947 38.5718 40.3333 37.6391 40.3333 36.6667V14.6667C40.3333 13.6942 39.947 12.7616 39.2594 12.0739C38.5718 11.3863 37.6391 11 36.6667 11H14.6667C13.6942 11 12.7616 11.3863 12.0739 12.0739C11.3863 12.7616 11 13.6942 11 14.6667V36.6667C11 37.6391 11.3863 38.5718 12.0739 39.2594C12.7616 39.947 13.6942 40.3333 14.6667 40.3333ZM51.3333 40.3333H73.3333C74.3058 40.3333 75.2384 39.947 75.9261 39.2594C76.6137 38.5718 77 37.6391 77 36.6667V14.6667C77 13.6942 76.6137 12.7616 75.9261 12.0739C75.2384 11.3863 74.3058 11 73.3333 11H51.3333C50.3609 11 49.4282 11.3863 48.7406 12.0739C48.053 12.7616 47.6667 13.6942 47.6667 14.6667V36.6667C47.6667 37.6391 48.053 38.5718 48.7406 39.2594C49.4282 39.947 50.3609 40.3333 51.3333 40.3333ZM14.6667 77H36.6667C37.6391 77 38.5718 76.6137 39.2594 75.9261C39.947 75.2384 40.3333 74.3058 40.3333 73.3333V51.3333C40.3333 50.3609 39.947 49.4282 39.2594 48.7406C38.5718 48.053 37.6391 47.6667 36.6667 47.6667H14.6667C13.6942 47.6667 12.7616 48.053 12.0739 48.7406C11.3863 49.4282 11 50.3609 11 51.3333V73.3333C11 74.3058 11.3863 75.2384 12.0739 75.9261C12.7616 76.6137 13.6942 77 14.6667 77ZM62.3333 77C70.422 77 77 70.422 77 62.3333C77 54.2447 70.422 47.6667 62.3333 47.6667C54.2447 47.6667 47.6667 54.2447 47.6667 62.3333C47.6667 70.422 54.2447 77 62.3333 77Z" fill="#CFCFCF"/>
+                    </svg>                        
+                </div>
+            </div>
+        </section>
+
+        <section class="tabs">
+            <button class="tabs-btn active btn-1">Vegetable</button>
+            <button class="tabs-btn btn-2">Fruits</button>
+            <button class="tabs-btn btn-3">Cash crops</button>
+            <button class="tabs-btn btn-4">Foods crops</button>
+            <button class="tabs-btn btn-5">Dairy</button>
+            <button class="tabs-btn btn-6">Non-veg</button>
+        </section>
+
+        <section id="vegetable" class="content-wrapper active">
+            <div class="item">
+                <div class="img">
+                    <img src="/styles/images/vegetable.png" alt="">
+                </div>
+                <div class="info-wrapper">
+                    <div class="info">
+                        <div class="title">
+                            <h3>Mushroom</h3>
+                            <p>Farmer: Bhim magar</p>
+                        </div>
+                        <p class="price">Nrs: 50<span>/kg</span></p>
+                    </div>
+                    <p class="quantity">Quantity: 200kg available</p>
+                    <button class="details-btn">View details</button>
+                </div>
+            </div>
+            <div class="item">
+                <div class="img">
+                    <img src="/styles/images/vegetable.png" alt="">
+                </div>
+                <div class="info-wrapper">
+                    <div class="info">
+                        <div class="title">
+                            <h3>Mushroom</h3>
+                            <p>Farmer: Bhim magar</p>
+                        </div>
+                        <p class="price">Nrs: 50<span>/kg</span></p>
+                    </div>
+                    <p class="quantity">Quantity: 200kg available</p>
+                    <button class="details-btn">View details</button>
+                </div>
+            </div>
+            <div class="item">
+                <div class="img">
+                    <img src="/styles/images/vegetable.png" alt="">
+                </div>
+                <div class="info-wrapper">
+                    <div class="info">
+                        <div class="title">
+                            <h3>Mushroom</h3>
+                            <p>Farmer: Bhim magar</p>
+                        </div>
+                        <p class="price">Nrs: 50<span>/kg</span></p>
+                    </div>
+                    <p class="quantity">Quantity: 200kg available</p>
+                    <button class="details-btn">View details</button>
+                </div>
+            </div>
+            <div class="item">
+                <div class="img">
+                    <img src="/styles/images/vegetable.png" alt="">
+                </div>
+                <div class="info-wrapper">
+                    <div class="info">
+                        <div class="title">
+                            <h3>Mushroom</h3>
+                            <p>Farmer: Bhim magar</p>
+                        </div>
+                        <p class="price">Nrs: 50<span>/kg</span></p>
+                    </div>
+                    <p class="quantity">Quantity: 200kg available</p>
+                    <button class="details-btn">View details</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="fruits" class="content-wrapper">
+            <div class="item">
+                <div class="img">
+                    <img src="/styles/images/vegetable.png" alt="">
+                </div>
+                <div class="info-wrapper">
+                    <div class="info">
+                        <div class="title">
+                            <h3>Apple</h3>
+                            <p>Farmer: Bhim magar</p>
+                        </div>
+                        <p class="price">Nrs: 50<span>/kg</span></p>
+                    </div>
+                    <p class="quantity">Quantity: 200kg available</p>
+                    <button class="details-btn">View details</button>
+                </div>
+            </div>
+            <div class="item">
+                <div class="img">
+                    <img src="/styles/images/vegetable.png" alt="">
+                </div>
+                <div class="info-wrapper">
+                    <div class="info">
+                        <div class="title">
+                            <h3>Mushroom</h3>
+                            <p>Farmer: Bhim magar</p>
+                        </div>
+                        <p class="price">Nrs: 50<span>/kg</span></p>
+                    </div>
+                    <p class="quantity">Quantity: 200kg available</p>
+                    <button class="details-btn">View details</button>
+                </div>
+            </div>
+            <div class="item">
+                <div class="img">
+                    <img src="/styles/images/vegetable.png" alt="">
+                </div>
+                <div class="info-wrapper">
+                    <div class="info">
+                        <div class="title">
+                            <h3>Mushroom</h3>
+                            <p>Farmer: Bhim magar</p>
+                        </div>
+                        <p class="price">Nrs: 50<span>/kg</span></p>
+                    </div>
+                    <p class="quantity">Quantity: 200kg available</p>
+                    <button class="details-btn">View details</button>
+                </div>
+            </div>
+            <div class="item">
+                <div class="img">
+                    <img src="/styles/images/vegetable.png" alt="">
+                </div>
+                <div class="info-wrapper">
+                    <div class="info">
+                        <div class="title">
+                            <h3>Mushroom</h3>
+                            <p>Farmer: Bhim magar</p>
+                        </div>
+                        <p class="price">Nrs: 50<span>/kg</span></p>
+                    </div>
+                    <p class="quantity">Quantity: 200kg available</p>
+                    <button class="details-btn">View details</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="cash-crops" class="content-wrapper">
+            <div class="item">
+                <div class="img">
+                    <img src="/styles/images/vegetable.png" alt="">
+                </div>
+                <div class="info-wrapper">
+                    <div class="info">
+                        <div class="title">
+                            <h3>Sugar Cane</h3>
+                            <p>Farmer: Bhim magar</p>
+                        </div>
+                        <p class="price">Nrs: 50<span>/kg</span></p>
+                    </div>
+                    <p class="quantity">Quantity: 200kg available</p>
+                    <button class="details-btn">View details</button>
+                </div>
+            </div>
+            <div class="item">
+                <div class="img">
+                    <img src="/styles/images/vegetable.png" alt="">
+                </div>
+                <div class="info-wrapper">
+                    <div class="info">
+                        <div class="title">
+                            <h3>Mushroom</h3>
+                            <p>Farmer: Bhim magar</p>
+                        </div>
+                        <p class="price">Nrs: 50<span>/kg</span></p>
+                    </div>
+                    <p class="quantity">Quantity: 200kg available</p>
+                    <button class="details-btn">View details</button>
+                </div>
+            </div>
+            <div class="item">
+                <div class="img">
+                    <img src="/styles/images/vegetable.png" alt="">
+                </div>
+                <div class="info-wrapper">
+                    <div class="info">
+                        <div class="title">
+                            <h3>Mushroom</h3>
+                            <p>Farmer: Bhim magar</p>
+                        </div>
+                        <p class="price">Nrs: 50<span>/kg</span></p>
+                    </div>
+                    <p class="quantity">Quantity: 200kg available</p>
+                    <button class="details-btn">View details</button>
+                </div>
+            </div>
+            <div class="item">
+                <div class="img">
+                    <img src="/styles/images/vegetable.png" alt="">
+                </div>
+                <div class="info-wrapper">
+                    <div class="info">
+                        <div class="title">
+                            <h3>Mushroom</h3>
+                            <p>Farmer: Bhim magar</p>
+                        </div>
+                        <p class="price">Nrs: 50<span>/kg</span></p>
+                    </div>
+                    <p class="quantity">Quantity: 200kg available</p>
+                    <button class="details-btn">View details</button>
+                </div>
+            </div>
+        </section> 
+
+        <section id="food-crops" class="content-wrapper">
+            <div class="item">
+                <div class="img">
+                    <img src="/styles/images/vegetable.png" alt="">
+                </div>
+                <div class="info-wrapper">
+                    <div class="info">
+                        <div class="title">
+                            <h3>Wheat</h3>
+                            <p>Farmer: Bhim magar</p>
+                        </div>
+                        <p class="price">Nrs: 50<span>/kg</span></p>
+                    </div>
+                    <p class="quantity">Quantity: 200kg available</p>
+                    <button class="details-btn">View details</button>
+                </div>
+            </div>
+            <div class="item">
+                <div class="img">
+                    <img src="/styles/images/vegetable.png" alt="">
+                </div>
+                <div class="info-wrapper">
+                    <div class="info">
+                        <div class="title">
+                            <h3>Mushroom</h3>
+                            <p>Farmer: Bhim magar</p>
+                        </div>
+                        <p class="price">Nrs: 50<span>/kg</span></p>
+                    </div>
+                    <p class="quantity">Quantity: 200kg available</p>
+                    <button class="details-btn">View details</button>
+                </div>
+            </div>
+            <div class="item">
+                <div class="img">
+                    <img src="/styles/images/vegetable.png" alt="">
+                </div>
+                <div class="info-wrapper">
+                    <div class="info">
+                        <div class="title">
+                            <h3>Mushroom</h3>
+                            <p>Farmer: Bhim magar</p>
+                        </div>
+                        <p class="price">Nrs: 50<span>/kg</span></p>
+                    </div>
+                    <p class="quantity">Quantity: 200kg available</p>
+                    <button class="details-btn">View details</button>
+                </div>
+            </div>
+            <div class="item">
+                <div class="img">
+                    <img src="/styles/images/vegetable.png" alt="">
+                </div>
+                <div class="info-wrapper">
+                    <div class="info">
+                        <div class="title">
+                            <h3>Mushroom</h3>
+                            <p>Farmer: Bhim magar</p>
+                        </div>
+                        <p class="price">Nrs: 50<span>/kg</span></p>
+                    </div>
+                    <p class="quantity">Quantity: 200kg available</p>
+                    <button class="details-btn">View details</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="dairy" class="content-wrapper">
+            <div class="item">
+                <div class="img">
+                    <img src="/styles/images/vegetable.png" alt="">
+                </div>
+                <div class="info-wrapper">
+                    <div class="info">
+                        <div class="title">
+                            <h3>Milk</h3>
+                            <p>Farmer: Bhim magar</p>
+                        </div>
+                        <p class="price">Nrs: 50<span>/kg</span></p>
+                    </div>
+                    <p class="quantity">Quantity: 200kg available</p>
+                    <button class="details-btn">View details</button>
+                </div>
+            </div>
+            <div class="item">
+                <div class="img">
+                    <img src="/styles/images/vegetable.png" alt="">
+                </div>
+                <div class="info-wrapper">
+                    <div class="info">
+                        <div class="title">
+                            <h3>Mushroom</h3>
+                            <p>Farmer: Bhim magar</p>
+                        </div>
+                        <p class="price">Nrs: 50<span>/kg</span></p>
+                    </div>
+                    <p class="quantity">Quantity: 200kg available</p>
+                    <button class="details-btn">View details</button>
+                </div>
+            </div>
+            <div class="item">
+                <div class="img">
+                    <img src="/styles/images/vegetable.png" alt="">
+                </div>
+                <div class="info-wrapper">
+                    <div class="info">
+                        <div class="title">
+                            <h3>Mushroom</h3>
+                            <p>Farmer: Bhim magar</p>
+                        </div>
+                        <p class="price">Nrs: 50<span>/kg</span></p>
+                    </div>
+                    <p class="quantity">Quantity: 200kg available</p>
+                    <button class="details-btn">View details</button>
+                </div>
+            </div>
+            <div class="item">
+                <div class="img">
+                    <img src="/styles/images/vegetable.png" alt="">
+                </div>
+                <div class="info-wrapper">
+                    <div class="info">
+                        <div class="title">
+                            <h3>Mushroom</h3>
+                            <p>Farmer: Bhim magar</p>
+                        </div>
+                        <p class="price">Nrs: 50<span>/kg</span></p>
+                    </div>
+                    <p class="quantity">Quantity: 200kg available</p>
+                    <button class="details-btn">View details</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="non-veg" class="content-wrapper">
+            <div class="item">
+                <div class="img">
+                    <img src="/styles/images/vegetable.png" alt="">
+                </div>
+                <div class="info-wrapper">
+                    <div class="info">
+                        <div class="title">
+                            <h3>Meat</h3>
+                            <p>Farmer: Bhim magar</p>
+                        </div>
+                        <p class="price">Nrs: 50<span>/kg</span></p>
+                    </div>
+                    <p class="quantity">Quantity: 200kg available</p>
+                    <button class="details-btn">View details</button>
+                </div>
+            </div>
+            <div class="item">
+                <div class="img">
+                    <img src="/styles/images/vegetable.png" alt="">
+                </div>
+                <div class="info-wrapper">
+                    <div class="info">
+                        <div class="title">
+                            <h3>Mushroom</h3>
+                            <p>Farmer: Bhim magar</p>
+                        </div>
+                        <p class="price">Nrs: 50<span>/kg</span></p>
+                    </div>
+                    <p class="quantity">Quantity: 200kg available</p>
+                    <button class="details-btn">View details</button>
+                </div>
+            </div>
+            <div class="item">
+                <div class="img">
+                    <img src="/styles/images/vegetable.png" alt="">
+                </div>
+                <div class="info-wrapper">
+                    <div class="info">
+                        <div class="title">
+                            <h3>Mushroom</h3>
+                            <p>Farmer: Bhim magar</p>
+                        </div>
+                        <p class="price">Nrs: 50<span>/kg</span></p>
+                    </div>
+                    <p class="quantity">Quantity: 200kg available</p>
+                    <button class="details-btn">View details</button>
+                </div>
+            </div>
+            <div class="item">
+                <div class="img">
+                    <img src="/styles/images/vegetable.png" alt="">
+                </div>
+                <div class="info-wrapper">
+                    <div class="info">
+                        <div class="title">
+                            <h3>Mushroom</h3>
+                            <p>Farmer: Bhim magar</p>
+                        </div>
+                        <p class="price">Nrs: 50<span>/kg</span></p>
+                    </div>
+                    <p class="quantity">Quantity: 200kg available</p>
+                    <button class="details-btn">View details</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="/js/dashboard/index.js"></script>
+</body>
+</html>
