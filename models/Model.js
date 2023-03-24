@@ -38,6 +38,6 @@ const User= db.define('User',{
     }
 })
 
-db.sync({alter:true})
+// db.sync({alter:true})
 
 module.exports = {User}    
