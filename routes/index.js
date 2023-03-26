@@ -4,6 +4,9 @@ router.get('/', (req, res) => {
     res.render('home/home.ejs')
 })
 
+router.get('/product', (req, res) => {
+    res.render('home/product.ejs')
+})
 router.get('/home', (req, res) => {
     res.render('home/index.ejs')
 })
