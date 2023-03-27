@@ -7,6 +7,7 @@ router.get('/', (req, res) => {
 router.get('/product', (req, res) => {
     res.render('home/product.ejs')
 })
+
 router.get('/home', (req, res) => {
     res.render('home/index.ejs')
 })
@@ -17,6 +18,10 @@ router.get('/login', (req,res)=>{
 
 router.get('/register', (req,res)=>{
     res.render('home/register.ejs')
+})
+
+router.post('/register', (req,res)=>{
+    console.log(req.body)
 })
 
 
