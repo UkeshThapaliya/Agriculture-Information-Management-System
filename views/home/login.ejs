@@ -56,6 +56,72 @@
             </div>
         </div>
     </div>
+<script src="/js/toast.js"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $("#login").on("click",(e)=>{
+        e.preventDefault();
+        $('#noloading').hide();
+        $('#loading').show();
+        $("#login").prop('disabled', true);
+        var email=$("#email").val();
+        var password=$("#password").val();
+
+        if (email==""){
+        $("#login").prop('disabled', false);
+        $('#loading').hide();
+        $('#noloading').show();
+            return Toast.fire({
+                title: 'Error!',
+                text: 'Please enter an email address',
+                icon: 'error',
+            })
+        }
+        return fetch('/login',{
+            method: 'POST',
+            headers: {'Content-type':'application/json'},
+            body:JSON.stringify({email,password})
+        }).then(res=>res.json(res))
+        .then(data=>{
+            // console.log(data)
+            if (data.title=="success login"){
+                Toast.fire({
+                title: 'Success!',
+                text: 'Logged in',
+                icon: 'success',
+                }).then(()=>{
+                    if(data.user.role=="admin"){
+                        location.href='/admin/home'
+                    }else{
+                        location.href='/dashboard/home'
+                    }
+                })
+            }
+            if(data.title=='error'){
+            $("#login").prop('disabled', false);
+            $('#loading').hide();
+            $('#noloading').show();
+                Toast.fire({
+                title: 'Error!',
+                text: 'incorrect password',
+                icon: 'error',
+                })
+            }
+            if(data.title=='no user'){
+            $("#login").prop('disabled', false);
+            $('#loading').hide();
+            $('#noloading').show();
+                Toast.fire({
+                title: 'Error!',
+                text: 'This email has no user, Please register',
+                icon: 'error',
+                })
+            }
+        })
+
+    })
+
+</script>
 </body>
 </html>

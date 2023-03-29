@@ -174,3 +174,7 @@ btn1.addEventListener('click', function(e) {
     btn1.style.color = "#fff";
     btn1.style.background = "#557100";
 })
+
+function dropdown(){
+    document.querySelector('.dropdown').classList.toggle('show');
+}

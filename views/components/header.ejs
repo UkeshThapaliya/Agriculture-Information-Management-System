@@ -23,7 +23,11 @@
         <li><a href="">Home</a></li>
         <li><a href="">Product</a></li>
 
+        <% if(auth == true){ %>
+            <li><a href="/dashboard/home">Dashboard</a> </li>
+        <% }else{ %>
         <li><a href="/login">Login</a></li>
         <li><a href="/register">Register</a></li>
+        <% } %>
     </ul>
 </header>

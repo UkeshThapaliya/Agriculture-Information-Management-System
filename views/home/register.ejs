@@ -26,21 +26,21 @@
                 <form >
                     <div class="form-input">
                         <label for="name">Username</label>
-                        <input id="Fullname" type="text"  placeholder="Enter your Username" required>
+                        <input id="name" type="text"  placeholder="Enter your Username" required>
                     </div>
                     <div class="form-input">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                        <input id="email" type="email" id="email" name="email" placeholder="Enter your email address" required>
                     </div>
                     
                     <div class="form-input">
-                        <label for="email">Phone</label>
-                        <input type="text"  placeholder="Enter your phone number" required>
+                        <label for="phoneNumber">Phone</label>
+                        <input id="phoneNumber" type="text"  placeholder="Enter your phone number" required>
                     </div>
                     <div class="form-input password">
                         <label for="password">Password</label>
                         <div>
-                            <input type="password" name="password" id="password" placeholder="Enter your password" required>
+                            <input id ="password" type="password" name="password" id="password" placeholder="Enter your password" required>
                             <img id="hide" src="styles/images/eye.png" alt="">
                         </div>
                     </div>
@@ -48,7 +48,7 @@
                     <div class="form-input password">
                         <label for="password"> Confirm Password</label>
                         <div>
-                            <input type="password" name="password" id="password" placeholder="Enter your password" required>
+                            <input id="confirmpassword" type="password" name="password" id="password" placeholder="Enter your password" required>
                             <img id="hide" src="styles/images/eye.png" alt="">
                         </div>
                     </div>
@@ -66,15 +66,71 @@
             </div>
         </div>
     </div>
-</body>
+
+<script src="/js/toast.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
     $("#registerBtn").on('click',(e)=>{
         e.preventDefault();
-        var name=$("#Fullname").val();
-        console.log(name);
+
+        $('#loading').show();
+        $('#noloading').hide();
+        $('#registerBtn').prop('disabled', true);
+        var email=$("#email").val()
+        var name=$("#name").val();
+        var phoneNumber=$("#phoneNumber").val()
+        var password=$("#password").val()
+        var confirmpassword=$("#confirmpassword").val()
+        // console.log(name, phoneNumber, password, confirmpassword,email)
+        if (email=="" || password=="" || phoneNumber == '' || confirmpassword == '' || name== ''){
+                $('#registerBtn').prop('disabled', false);
+                $('#loading').hide();
+                $('#noloading').show();
+                return Toast.fire({
+                    title: 'Error!',
+                    text: 'Please fill all the fields',
+                    icon: 'error',
+                });
+            } else if (password != confirmpassword) {
+                $('#registerBtn').prop('disabled', false);
+                $('#loading').hide();
+                $('#noloading').show();
+                return Toast.fire({
+                    title: 'Error!',
+                    text: 'Password and confirm password do not match',
+                    icon: 'error',
+                });
+            }
+        return fetch('/register',{
+            method: 'POST',
+            headers:{'Content-Type': 'application/json'},
+            body: JSON.stringify({name,phoneNumber,confirmpassword,email,password})
+        }).then(res => res.json(res))
+        .then(data => {
+            console.log(data)
+            if(data.title == 'UserExist'){
+            $('#registerBtn').prop('disabled', false);
+            $('#loading').hide();
+            $('#noloading').show();
+
+            return Toast.fire({
+                title: 'Error!',
+                text: 'User already exist',
+                icon: 'error',
+                })
+        }
+            if(data.title == 'success'){
+                Toast.fire({
+                    title: 'Success!',
+                    text: 'You have been registered, Please login',
+                    icon: 'success',
+                }).then(() => {
+                    location.href = "/login"
+                })
+            
+        }
+        })
     })
 </script>
-
-
+</body>
 </html>
