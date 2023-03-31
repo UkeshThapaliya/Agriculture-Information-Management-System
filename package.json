@@ -1,21 +1,19 @@
 {
   "name": "agriculture-information-management-system",
   "version": "1.0.0",
-  "description": "To make it easy for you to get started with GitLab, here's a list of recommended next steps.",
+  "description": "To make it easy for you to get started with Github, here's a list of recommended next steps.",
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js -e ejs,js,css,html,scss"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/rohanwork909/agriculture-information-management-system.git"
+    "url": "git+https://github.com/Ukesh404/AIMS.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://gitlab.com/rohanwork909/agriculture-information-management-system/issues"
   },
-  "homepage": "https://gitlab.com/rohanwork909/agriculture-information-management-system#readme",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "dotenv": "^16.0.3",
