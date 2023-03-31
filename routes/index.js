@@ -14,6 +14,7 @@ function loggedIn(req,res,next){
     }
 }
 
+//middleware for checking the user
 function isguest(req, res, next){
     if(req.user){
         res.redirect('/dashboard/home');
@@ -22,6 +23,7 @@ function isguest(req, res, next){
     }
 }
 
+//route for the landing page or home page
 router.get('/', (req, res)=>{
     if( req.isAuthenticated()){
         return res.render('home/home.ejs', {auth: true, user: req.user})
@@ -33,19 +35,23 @@ router.get('/product', isguest,(req, res) => {
     res.render('home/product.ejs',{ auth: false})
 })
 
-
+//rout for login page
 router.get('/login',isguest, (req,res)=>{
     res.render('home/login.ejs',{ auth: false})
 })
 
+// login page backend
 router.post('/login',isguest,(req, res,next)=>{
+    // Use Passport.js to authenticate user credentials.
     passport.authenticate('local',(err,user,info)=>{
+        // If there is no info or the message is 'no info', return a 'no user' error message.
         if(info != undefined && info.message=='no info'){
             var data={
                 'title':'no user',
             }
             return res.json(data)
         }
+        // If user credentials are correct, log in the user.
         if(user){
             req.logIn(user,(err,info)=>{
                 var data={
@@ -54,6 +60,7 @@ router.post('/login',isguest,(req, res,next)=>{
                 }
                 res.json(data)
             })
+        // If user credentials are incorrect or invalid, return an error message.
         }else{
             var data={
                 'title':'error',
