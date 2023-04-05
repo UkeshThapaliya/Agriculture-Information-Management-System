@@ -3,33 +3,45 @@
     <%- include("../components/dashboard/sidebar") %>
     <main>
         <%- include("../components/dashboard/navbar") %>
-
-        <table id="example" class="table table-bordered" style="width:100%">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone No</th>
-                <th>Joined Date</th>
-              </tr>
-            </thead>
-            <tbody>
+          <section class="farmer">
+            <h1>Farmer Post</h1>
+            <table id="example" class="table table-bordered" style="width:100%">
+              <thead>
                 <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone No</th>
+                  <th>Joined Date</th>
+                  <th></th>
                 </tr>
-            </tbody>
-            <tfoot>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone No</th>
-                <th>Joined Date</th>
-              </tr>
-            </tfoot>
-          </table>   
+              </thead>
+              <tbody>
+                <% for(var i=0; i < farmer.length; i++){ %>
+                  <tr>
+                    <td><%=farmer[i].name%> </td>
+                    <td><%=farmer[i].email%></td>
+                    <td><%=farmer[i].phoneNumber%></td>
+                    <td><%=farmer[i].createdAt.toISOString().split("T")[0]%></td>
+                    <td class="action-menu">
+                      <i class="fa-solid fa-ellipsis"></i>
+                      <ul class="action-btn">
+                        <li><button type="submit" onclick="userDetails('<%= farmer[i].id %>')"><i class="fa-solid fa-circle-info"></i>View Details</button></li>
+                        <li><button type="submit" onclick="deleteUser('<%= farmer[i].id %>')"><i class="fa-solid fa-trash"></i>Delete</button></li>
+                      </ul>
+                    </td>
+                  </tr>
+                <% } %>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone No</th>
+                  <th>Joined Date</th>
+                </tr>
+              </tfoot>
+            </table>    
+          </section>
 
 
     </main>
