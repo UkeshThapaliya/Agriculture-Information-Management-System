@@ -1,0 +1,147 @@
+.table{
+    border-radius: 7px;
+    th{
+       color: #616161;
+       font-size: 14px;
+       border: none;
+    }
+    td{
+        color: #616161;
+        font-size: 14px;
+        border: none;
+    }
+    thead{
+        tr{
+            th{
+                border-bottom: 1px solid #ddd;
+                padding: 16px 8px 16px 24px;
+            }
+        }
+    }
+    tbody{
+        background-color: white;
+        tr{
+            td{
+                border-bottom: 1px solid #ddd;
+                padding: 20px 8px 20px 24px;
+            }
+            &:last-child{
+                td{
+                    border-bottom: none;
+                }
+            }
+            .action-menu{
+                position: relative;
+                i{
+                    padding: 5px;
+                    cursor: pointer;
+                }
+                .action-btn{
+                    display: none;
+                    position: absolute;
+                    right: 30px;
+                    width: 180px;
+                    background-color: white;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    padding-left: 0 !important;
+                    z-index: 4;
+                    li{
+                        cursor: pointer;
+                        &:focus-visible{
+                            outline: none;
+                        }
+                        button{
+                            padding: 10px 20px;
+                            background: none !important;
+                            display: flex;
+                            align-items: center;
+                            gap: 8px;
+                            border: none;
+                            width: 100%;
+                            &:focus-visible{
+                                outline: none;
+                            }
+                            &:focus{
+                                outline: none;
+                            }
+                            i{
+                                padding: 5px;
+                                cursor: pointer;
+                            }
+                            .fa-circle-info{
+                                color: #019B7F;
+                            }
+                            .fa-trash{
+                                color: #E87979;
+                            }
+                        }
+                        &:hover{
+                            background-color: #f3f3f3;
+                        }
+                    }
+                    &.show{
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+    tfoot{
+        display: none;
+    }
+    &.dataTable{
+        border-right-width: 1px;
+    }
+}
+.dataTables_wrapper{
+    .dataTables_info{
+        font-size: 13px;
+        color: #595959;
+    }
+}
+.row{
+    &:first-child{
+        font-size: 14px;
+        .dataTables_filter{
+            label{
+                input{
+                    padding: 10px 30px 10px 10px;
+                    border-radius: 5px;
+                    &::placeholder{
+                    font-size: 13px;
+                    font-weight: 400;
+                    color: #595959;
+                    }
+                    &:focus-visible{
+                    outline: none;
+                    }
+                }
+            }
+        }
+    }
+    &:last-child{
+        margin-top: 15px;
+    }
+    .dataTables_length{
+        label{
+            select{
+                padding: 4px 30px 7.68px 10px;
+            }
+        }
+    }
+}
+.dataTables_paginate{
+    .pagination{
+        li{
+            font-size: 14px;
+        }
+        .active{
+            a{
+                background-color: $primary-color;
+                border: none;
+            }
+        }
+    }
+}
