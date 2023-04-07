@@ -1,15 +1,61 @@
-.product{
-    margin-top: 90px;
-    span{
-        color: $primary-color;
-        font-size: 40px;
-    }
-    .serach{
-        margin-top: 20px;
-        float: right;
+.product-wrapper{
+    margin-top:100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 150px;
+    position: relative;
+    .tabs{
+        position: sticky;
+        top: 20px;
+        left: 0;
         display: flex;
-        .button{
-            background-color: $primary-color;
+        flex-direction: column;
+        justify-content: normal;
+        gap: 20px;
+        width: 180px;
+        .tabs-btn{
+            width: 100%;
+            flex: 0;
+        }
+    }
+    .product{
+        .search-wrapper{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            h2{
+                font-size:28px;
+                color: #557100;
+                font-weight: 700;
+            }
+            .search{
+                position: relative;
+                input{
+                    border: 1px solid #557100;
+                    border-radius: 30px;
+                    padding:10px 60px 10px 20px;
+                    width: 250px;
+                    &:focus-visible{
+                        outline: none;
+                    }
+                }
+                .search-btn{
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    border: none;
+                    height: 100%;
+                    background: #557100;
+                    border-radius: 0 50% 50% 0;
+                    width: 50px;
+                }
+            }
+            
+        }
+        .content-wrapper{
+            margin-top: 30px;
+            gap: 30px;
         }
     }
 }

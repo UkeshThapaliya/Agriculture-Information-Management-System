@@ -21,8 +21,9 @@ body {
 }
 
 .container {
-  max-width: min(100% - 15px, 1000px);
+  max-width: min(100% - 15px, 1200px);
   margin: 0 auto;
+  padding: 0;
   @media (max-width: 992px) {
     max-width: 720px;
   }
@@ -61,7 +62,7 @@ header {
   justify-content: space-between;
   height: 100px;
   padding: 20px 0;
-  position: fixed;
+  position: absolute;
   inset: 0;
   .hamburger {
     height: 17px;
