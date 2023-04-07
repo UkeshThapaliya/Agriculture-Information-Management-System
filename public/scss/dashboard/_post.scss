@@ -1,0 +1,45 @@
+.post{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    .container{
+        max-width: 700px;
+        width: 100%;
+        padding: 25px 30px;
+        .tittle{
+            text-align: center;
+            position: relative;
+            ::before{
+                content: "";
+                position: relative;
+            }
+        }
+        form{
+            .user{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                .space{
+                    width: calc(100% /2 - 20px);
+                    margin: 20px 0 12px 0;
+                    label{
+                        display: block;
+                        font-weight: 500;
+                        margin-bottom: 5px;
+                    }
+                }
+
+            }
+            .butoon{
+                justify-content: center;
+               input{
+                color: white;
+                background-color: $primary-color;
+               }
+            }
+        }
+
+    }
+}

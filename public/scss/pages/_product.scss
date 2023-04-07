@@ -1,0 +1,15 @@
+.product{
+    margin-top: 90px;
+    span{
+        color: $primary-color;
+        font-size: 40px;
+    }
+    .serach{
+        margin-top: 20px;
+        float: right;
+        display: flex;
+        .button{
+            background-color: $primary-color;
+        }
+    }
+}

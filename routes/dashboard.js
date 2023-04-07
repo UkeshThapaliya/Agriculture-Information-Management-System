@@ -14,4 +14,7 @@ router.get('/farmer', (req, res) => {
     })
 })
 
+router.get('/post', (req, res) => {
+    res.render('dashboard/post.ejs',{user:req.user})
+})
 module.exports=router;
