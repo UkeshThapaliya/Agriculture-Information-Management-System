@@ -1,6 +1,6 @@
 const express =require('express');
 const db=require('./connection')
-const {User} = require('./models/Model')
+const {User,Categories,Product} = require('./models/Model')
 const passport=require('passport')
 
 require('dotenv').config;

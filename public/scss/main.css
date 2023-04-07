@@ -583,6 +583,22 @@ header ul li a:hover {
   margin-top: 16px;
 }
 
+.product {
+  margin-top: 90px;
+}
+.product span {
+  color: #9AB200;
+  font-size: 40px;
+}
+.product .serach {
+  margin-top: 20px;
+  float: right;
+  display: flex;
+}
+.product .serach .button {
+  background-color: #9AB200;
+}
+
 a:active {
   color: currentColor;
 }
@@ -953,4 +969,206 @@ main #dairy {
 }
 main #non-veg {
   display: none;
+}
+
+.farmer {
+  margin-top: 30px;
+}
+.farmer .calendar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.farmer .calendar .calendar-wrapper {
+  cursor: pointer;
+  background-color: #9AB200;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+.farmer .calendar .calendar-wrapper label {
+  margin: 0;
+}
+.farmer .calendar .calendar-wrapper input {
+  background: none;
+  border: none;
+  padding-left: 7px;
+  color: white;
+}
+.farmer h1 {
+  font-weight: 600;
+  font-size: 24px;
+  color: #595959;
+  margin-bottom: 30px;
+}
+.farmer .table {
+  border-radius: 7px;
+}
+.farmer .table th {
+  color: #616161;
+  font-size: 14px;
+  border: none;
+}
+.farmer .table td {
+  color: #616161;
+  font-size: 14px;
+  border: none;
+}
+.farmer .table thead tr th {
+  border-bottom: 1px solid #ddd;
+  padding: 16px 8px 16px 24px;
+}
+.farmer .table tbody {
+  background-color: white;
+}
+.farmer .table tbody tr td {
+  border-bottom: 1px solid #ddd;
+  padding: 20px 8px 20px 24px;
+}
+.farmer .table tbody tr:last-child td {
+  border-bottom: none;
+}
+.farmer .table tbody tr .action-menu {
+  position: relative;
+}
+.farmer .table tbody tr .action-menu i {
+  padding: 5px;
+  cursor: pointer;
+}
+.farmer .table tbody tr .action-menu .action-btn {
+  display: none;
+  position: absolute;
+  right: 30px;
+  width: 180px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  padding-left: 0 !important;
+  z-index: 4;
+}
+.farmer .table tbody tr .action-menu .action-btn li {
+  cursor: pointer;
+}
+.farmer .table tbody tr .action-menu .action-btn li:focus-visible {
+  outline: none;
+}
+.farmer .table tbody tr .action-menu .action-btn li button {
+  padding: 10px 20px;
+  background: none !important;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  width: 100%;
+}
+.farmer .table tbody tr .action-menu .action-btn li button:focus-visible {
+  outline: none;
+}
+.farmer .table tbody tr .action-menu .action-btn li button:focus {
+  outline: none;
+}
+.farmer .table tbody tr .action-menu .action-btn li button i {
+  padding: 5px;
+  cursor: pointer;
+}
+.farmer .table tbody tr .action-menu .action-btn li button .fa-circle-info {
+  color: #019B7F;
+}
+.farmer .table tbody tr .action-menu .action-btn li button .fa-trash {
+  color: #E87979;
+}
+.farmer .table tbody tr .action-menu .action-btn li:hover {
+  background-color: #f3f3f3;
+}
+.farmer .table tbody tr .action-menu .action-btn.show {
+  display: block;
+}
+.farmer .table tfoot {
+  display: none;
+}
+.farmer .table.dataTable {
+  border-right-width: 1px;
+}
+.farmer .dataTables_wrapper .dataTables_info {
+  font-size: 13px;
+  color: #595959;
+}
+.farmer .row:first-child {
+  font-size: 14px;
+}
+.farmer .row:first-child .dataTables_filter label input {
+  padding: 10px 30px 10px 10px;
+  border-radius: 5px;
+}
+.farmer .row:first-child .dataTables_filter label input::-moz-placeholder {
+  font-size: 13px;
+  font-weight: 400;
+  color: #595959;
+}
+.farmer .row:first-child .dataTables_filter label input::placeholder {
+  font-size: 13px;
+  font-weight: 400;
+  color: #595959;
+}
+.farmer .row:first-child .dataTables_filter label input:focus-visible {
+  outline: none;
+}
+.farmer .row:last-child {
+  margin-top: 15px;
+}
+.farmer .row .dataTables_length label select {
+  padding: 4px 30px 7.68px 10px;
+}
+.farmer .dataTables_paginate .pagination li {
+  font-size: 14px;
+}
+.farmer .dataTables_paginate .pagination .active a {
+  background-color: #9AB200;
+  border: none;
+}
+
+.post {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+.post .container {
+  max-width: 700px;
+  width: 100%;
+  padding: 25px 30px;
+}
+.post .container .tittle {
+  text-align: center;
+  position: relative;
+}
+.post .container .tittle ::before {
+  content: "";
+  position: relative;
+}
+.post .container form .user {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.post .container form .user .space {
+  width: calc(50% - 20px);
+  margin: 20px 0 12px 0;
+}
+.post .container form .user .space label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.post .container form .butoon {
+  justify-content: center;
+}
+.post .container form .butoon input {
+  color: white;
+  background-color: #9AB200;
 }/*# sourceMappingURL=main.css.map */

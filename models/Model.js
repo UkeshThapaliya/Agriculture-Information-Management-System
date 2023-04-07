@@ -38,6 +38,69 @@ const User= db.define('User',{
     }
 })
 
+const Categories = db.define('Categories', {
+    id: {
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement: false,
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4
+    },
+    name: {
+        type: DataTypes.STRING(25),
+        allowNull: false
+    }
+});
+
+const Product = db.define('Product', {
+    id: {
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement: false,
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4
+    },
+    category:{
+        type: DataTypes.STRING(25),
+
+    },
+    price:{
+        type: DataTypes.STRING(25),
+        allowNull: false
+    },quality:{
+        type: DataTypes.STRING(25),
+
+    },size:{
+        type: DataTypes.STRING(25),
+        allowNull: false
+    },grown:{
+        type: DataTypes.STRING(25),
+        
+    },vitamins:{
+        type: DataTypes.STRING(25),
+        
+    },calories:{
+        type: DataTypes.STRING(25),
+        
+    },soil:{
+        type: DataTypes.STRING(25),
+        
+    },origin:{
+        type: DataTypes.STRING(25),
+        
+    },availability:{
+        type: DataTypes.STRING(25),
+
+    },shelflife:{
+        type: DataTypes.STRING(25),
+
+    },description:{
+        type: DataTypes.TEXT()
+    }
+})
+
 // db.sync({alter:true})
 
-module.exports = {User}    
+Product.belongsTo(User); // Add foreign key constraint
+
+module.exports = {User,Categories,Product}    

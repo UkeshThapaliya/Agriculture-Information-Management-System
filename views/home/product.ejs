@@ -1,16 +1,15 @@
 <%- include("../components/head") %>
 <body>
     <%- include("../components/header") %>
+    
     <main>
-        <div>Product</div>
-        <section class="tabs">
-            <button class="tabs-btn active btn-1">Vegetable</button>
-            <button class="tabs-btn btn-2">Fruits</button>
-            <button class="tabs-btn btn-3">Cash crops</button>
-            <button class="tabs-btn btn-4">Foods crops</button>
-            <button class="tabs-btn btn-5">Dairy</button>
-            <button class="tabs-btn btn-6">Non-veg</button>
-        </section>
+       <div class="product">
+         <span>Product</span>
+         <div class="serach">
+            <input type="text">
+            <div class="button"><input type="submit" value="Search"></div>
+         </div>
+        </div>
         <section id="vegetable" class="content-wrapper active">
             <div class="item">
                 <div class="img">
