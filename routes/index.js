@@ -31,10 +31,14 @@ router.get('/', (req, res)=>{
     res.render('home/home.ejs', {auth: false})
 })
 
+// router.get('/product',(req, res) => {
+//     if( req.isAuthenticated()){
+//         return res.render('home/product.ejs', {auth: true, user: req.user})
+//     }
+//     res.render('home/product.ejs', {auth: false})
+// })
+
 router.get('/product',(req, res) => {
-    if( req.isAuthenticated()){
-        return res.render('home/product.ejs', {auth: true, user: req.user})
-    }
     res.render('home/product.ejs', {auth: false})
 })
 
@@ -52,6 +56,7 @@ router.post('/login',isguest,(req, res,next)=>{
             var data={
                 'title':'no user',
             }
+            console.log("There is no user with given email address")
             return res.json(data)
         }
         // If user credentials are correct, log in the user.
@@ -68,6 +73,7 @@ router.post('/login',isguest,(req, res,next)=>{
             var data={
                 'title':'error',
             }
+            console.log("Incorrect password")
             res.json(data)
         }
     })(req, res,next)
