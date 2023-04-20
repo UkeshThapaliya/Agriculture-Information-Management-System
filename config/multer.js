@@ -24,7 +24,7 @@ const uploadFarmerImg = multer({
 })
 
 const uploadFarmerImages = uploadFarmerImg.fields([{name: 'profile'}])
-const uploadProductImages = uploadFarmerImg.fields([{name: 'product'}])
+const uploadProductImages = uploadFarmerImg.fields([{name: 'productImg'}])
 
 //check file type
 function checkFileType(file, cb) {

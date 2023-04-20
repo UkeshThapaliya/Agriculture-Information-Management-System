@@ -17,4 +17,9 @@ router.get('/farmer', (req, res) => {
 router.get('/post', (req, res) => {
     res.render('dashboard/post.ejs',{user:req.user})
 })
+
+router.post('/post', (req, res) => {
+    console.log("Post page activated")
+})
+
 module.exports=router;

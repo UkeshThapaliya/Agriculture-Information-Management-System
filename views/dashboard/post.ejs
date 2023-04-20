@@ -12,81 +12,117 @@
                 <div class="user">
                     <div class="space">
                         <label for="">Product name</label>
-                        <input type="text" placeholder="Enter product name">
+                        <input id="productname" type="text" placeholder="Enter product name">
                     </div>
-                    <div class="space">
+                    <div class="space" >
                         <label for="">Category</label>
-                        <Select placeholder ="Vegetable">
-                            <option value="">Vegetable</option>
+                        <Select placeholder ="Vegetable" id="category">
+                            <option value="Vegetable">Vegetable</option>
+                            <option value="Fruits">Fruits</option>
+                            <option value="Cash crops">Cash crops</option>
+                            <option value="Food crops">Food crops</option>
+                            <option value="Dairy">Dairy</option>
+                            <option value="Non-veg">Non-veg</option>
                         </Select>
                         
                     </div>
                     <div class="space">
                         <label for="">Price</label>
-                        <input type="text" placeholder="Enter product name">
+                        <input id="price" type="text" placeholder="Enter product name">
                     </div>
                    <div class="space">
                         <label for="">Quality</label>
-                        <select palceholder="A">
-                            <option value="">A</option>
-                            <option value="">B</option>
-                            <option value="">C</option>
+                        <select palceholder="A" id="quality">
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
                         </select>
                     </div>
                     <div class="space">
                         <label for="">Size</label>
-                        <select palceholder="Small">
-                            <option value="">Small</option>
-                            <option value="">Medium</option>
-                            <option value="">Large</option>
+                        <select palceholder="Small" id="size">
+                            <option value="Small">Small</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Large">Large</option>
                         </select>
                     </div>
                     <div class="space">
                         <label for="">Growm</label>
-                        <select palceholder="locally">
-                            <option value="">locally</option>
-                            <option value="">Medium</option>
-                            <option value="">Large</option>
+                        <select palceholder="locally" id="grown">
+                            <option value="Locally">Locally</option>
+                            <option value="Imported">Imported</option>
+                            <option value="Greenhouse Grown">Greenhouse Grown</option>
+                            <option value="Industrail Grown">Industrail Grown</option>
                         </select>
                     </div>
                     <div class="space">
                         <label for="">Vitamins</label>
-                        <input type="text" placeholder="C">
+                        <input id="vitamins" type="text" placeholder="C">
                     </div>
                     <div class="space">
                         <label for="">Calories</label>
-                        <input type="text" placeholder="41">
+                        <input id="calories" type="text" placeholder="41">
                     </div>
                     <div class="space">
                         <label for="">Soil</label>
-                        <input type="text" placeholder="sand">
+                        <input id="soil" type="text" placeholder="sand">
                     </div>
                     <div class="space">
                         <label for="">Origin</label>
-                        <input type="text" placeholder="sand">
+                        <input id="origin" type="text" placeholder="Dang">
                     </div>
                     <div class="space">
                         <label for="">Avability</label>
-                        <select palceholder="locally">
-                            <option value="">Yes</option>
-                            <option value="">No</option>
+                        <select palceholder="locally" id="avability">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
                         </select>
                     </div>
                     <div class="space">
-                        <label for="">Shell</label>
-                        <input type="text" placeholder="15 days">
+                        <label for="">Shell life</label>
+                        <input id="shell_life" type="text" placeholder="15 days">
                     </div>
                 </div>
                 <div class="description">
                     <label for="">Description</label>
-                    <textarea type="text"></textarea>
+                    <textarea id="description" type="text"></textarea>
                 </div>
                 <input type="file" class="file" name="">
-                <button class="submit-btn">Submit</button>
+                <button class="submit-btn" id="PostBtn" type="button" name="" value="">
+                    <div id="loading2" class="loading" style="display: none;"></div>
+                    <span id="noloading2" style="display: block;">Submit</span>
+                </button>
             </form>
            </div>
         </div>
     </main>
 </body>
 <script src="/js/dashboard/index.js"></script>
+<script src="/js/toast.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $("#PostBtn").on("click",(e)=>{
+        e.preventDefault();
+        $('#noloading').hide();
+        $('#loading').show();
+        $("#PostBtn").prop('disabled', true);
+
+        var productname=$("#productname").val()
+        var categorySelect = document.getElementById("category");
+        var category = categorySelect.options[categorySelect.selectedIndex].value;
+        var qualitySelect = document.getElementById("quality")
+        var quality = qualitySelect.options[qualitySelect.selectedIndex].value;
+        var sizeSelect = document.getElementById("size")
+        var size = sizeSelect.options[sizeSelect.selectedIndex].value;
+        var grownSelect= document.getElementById("grown")
+        var grown = grownSelect.options[grownSelect.selectedIndex].value;
+        var vitamins = $("#vitamins").val()
+        var calories = $("#calories").val()
+        var soil= $("#soil").val()
+        var origin = $("#origin").val()
+        var description = $("#description").val()
+        console.log(productname,category,quality,size,grown, vitamins ,calories,soil,origin,description)
+    })
+</script>
+
 </html>
