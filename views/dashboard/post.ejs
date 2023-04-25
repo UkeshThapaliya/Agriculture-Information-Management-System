@@ -8,7 +8,7 @@
             <div class="tittle">
                 <h1>Post</h1>
             </div>
-            <form action="">
+            <form id="productForm"  enctype="multipart/form-data">
                 <div class="user">
                     <div class="space">
                         <label for="">Product name</label>
@@ -72,22 +72,22 @@
                         <input id="origin" type="text" placeholder="Dang">
                     </div>
                     <div class="space">
-                        <label for="">Avability</label>
-                        <select palceholder="locally" id="avability">
+                        <label for="">Availability</label>
+                        <select palceholder="Yes" id="availability">
                             <option value="Yes">Yes</option>
                             <option value="No">No</option>
                         </select>
                     </div>
                     <div class="space">
                         <label for="">Shell life</label>
-                        <input id="shell_life" type="text" placeholder="15 days">
+                        <input id="shelflife" type="text" placeholder="15 days">
                     </div>
                 </div>
                 <div class="description">
                     <label for="">Description</label>
                     <textarea id="description" type="text"></textarea>
                 </div>
-                <input type="file" class="file" name="">
+                <input type="file" class="file" id="productImg" name="productImg">
                 <button class="submit-btn" id="PostBtn" type="button" name="" value="">
                     <div id="loading2" class="loading" style="display: none;"></div>
                     <span id="noloading2" style="display: block;">Submit</span>
@@ -107,6 +107,8 @@
         $('#loading').show();
         $("#PostBtn").prop('disabled', true);
 
+        var formData = new FormData()
+
         var productname=$("#productname").val()
         var categorySelect = document.getElementById("category");
         var category = categorySelect.options[categorySelect.selectedIndex].value;
@@ -118,11 +120,49 @@
         var grown = grownSelect.options[grownSelect.selectedIndex].value;
         var vitamins = $("#vitamins").val()
         var calories = $("#calories").val()
+        var price = $("#price").val()
         var soil= $("#soil").val()
         var origin = $("#origin").val()
         var description = $("#description").val()
-        console.log(productname,category,quality,size,grown, vitamins ,calories,soil,origin,description)
+        var productImage = $("#productImg").prop('files')[0];
+        var shelflife = $("#shelflife").val()
+        var availabilitySelect= document.getElementById("availability")
+        var availability = availabilitySelect.options[availabilitySelect.selectedIndex].value;
+
+        formData.append('productname', productname)
+        formData.append('category', category)
+        formData.append('quality', quality)
+        formData.append('size', size)
+        formData.append('grown', grown)
+        formData.append('vitamins', vitamins)
+        formData.append('calories', calories)
+        formData.append('price', price)
+        formData.append('soil', soil)
+        formData.append('origin', origin)
+        formData.append('description', description)
+        formData.append('shelflife', shelflife)
+        formData.append('availability', availability)
+        formData.append('productImg', productImage)
+
+        if (productImage=="" || productname=="" || price==""){
+                $('#PostBtn').prop('disabled', false);
+                $('#loading').hide();
+                $('#noloading').show();
+                return Toast.fire({
+                    title: 'Error!',
+                    text: 'Please Provide product name,price and image',
+                    icon: 'error',
+                    })
+            }
+
+    console.log(productname,category,quality,size,grown, vitamins ,calories,soil,origin,description, productImage,shelflife,availability)
+    console.log(...formData)
+
+    return fetch('/dashboard/post',{
+        method: 'POST',
+        body:formData
     })
+  })
 </script>
 
 </html>

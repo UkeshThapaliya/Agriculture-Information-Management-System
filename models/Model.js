@@ -96,7 +96,10 @@ const Product = db.define('Product', {
 
     },description:{
         type: DataTypes.TEXT()
-    }
+    },
+    productImg:{
+        type:DataTypes.TEXT()
+    },
 })
 
 // db.sync({alter:true})
