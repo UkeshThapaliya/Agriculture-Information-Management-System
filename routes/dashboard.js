@@ -46,11 +46,26 @@ router.post('/post',uploadProductImages, async (req, res) => {
             shelflife,
             availability
         });
-
-        res.status(201).json(newProduct);
+        if(newProduct){
+            console.log("Post saved successfully")
+            var data={
+                'title':'success',
+            }
+            res.json(data);
+        }else{
+            console.log("Post wasnot saved")
+            var data={
+                'title':'failed',
+            }
+            res.json(data);
+        }
     } catch (error) {
         console.error(error);
-        res.status(500).send('Server Error');
+        // res.status(500).send('Server Error');
+        var data={
+            'title':'failed',
+        }
+        res.json(data);
     }
 });
 

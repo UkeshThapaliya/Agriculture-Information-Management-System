@@ -144,7 +144,7 @@
         formData.append('availability', availability)
         formData.append('productImg', productImage)
 
-        if (productImage=="" || productname=="" || price==""){
+        if (productImage==undefined || productname=="" || price==""){
                 $('#PostBtn').prop('disabled', false);
                 $('#loading').hide();
                 $('#noloading').show();
@@ -161,7 +161,30 @@
     return fetch('/dashboard/post',{
         method: 'POST',
         body:formData
-    })
+    }).then(res=>res.json())
+            .then(data=>{
+                if(data.title == 'failure'){
+                $('#PostBtn').prop('disabled', false);
+                $('#loading').hide();
+                $('#noloading').show();
+
+                return Toast.fire({
+                    title: 'Error!',
+                    text: 'Something went wrong',
+                    icon: 'error',
+                    })
+                }   
+                if(data.title == 'success'){
+                    Toast.fire({
+                        title: 'Success!',
+                        text: 'Product posted successfully',
+                        icon: 'success',
+                    }).then(() => {
+                        location.reload()
+                    })
+                
+            }
+            })
   })
 </script>
 
