@@ -60,6 +60,10 @@ const Product = db.define('Product', {
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4
     },
+    productname:{
+        type: DataTypes.STRING(25),
+        allowNull: false
+    },
     category:{
         type: DataTypes.STRING(25),
 

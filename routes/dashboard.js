@@ -7,9 +7,9 @@ router.get('/home', (req, res) => {
 })
 
 router.get('/farmer', (req, res) => {
-    User.findAll({where:{role:"farmer"}}).then((farmer)=>{
-        console.log(farmer.length)
-        res.render('dashboard/farmer.ejs',{user:req.user,email:req.body.email,farmer})
+    Product.findAll({where:{UserId:req.user.id}}).then((product)=>{
+        console.log(product.length)
+        res.render('dashboard/farmer.ejs',{user:req.user,email:req.body.email,product})
     }).catch((err)=>{
         console.log(err)
     })

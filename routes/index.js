@@ -31,14 +31,10 @@ router.get('/', (req, res)=>{
     res.render('home/home.ejs', {auth: false})
 })
 
-// router.get('/product',(req, res) => {
-//     if( req.isAuthenticated()){
-//         return res.render('home/product.ejs', {auth: true, user: req.user})
-//     }
-//     res.render('home/product.ejs', {auth: false})
-// })
-
 router.get('/product',(req, res) => {
+    if( req.isAuthenticated()){
+        return res.render('home/product.ejs', {auth: true, user: req.user})
+    }
     res.render('home/product.ejs', {auth: false})
 })
 

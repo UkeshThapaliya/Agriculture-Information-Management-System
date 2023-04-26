@@ -8,25 +8,29 @@
             <table id="example" class="table table-bordered" style="width:100%">
               <thead>
                 <tr>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Phone No</th>
-                  <th>Joined Date</th>
+                  <th>Product Name</th>
+                  <th>Category</th>
+                  <th>Price</th>
+                  <th>Grown</th>
+                  <th>Availability</th>
+                  <th>Posted on</th>
                   <th></th>
                 </tr>
               </thead>
               <tbody>
-                <% for(var i=0; i < farmer.length; i++){ %>
+                <% for(var i=0; i < product.length; i++){ %>
                   <tr>
-                    <td><%=farmer[i].name%> </td>
-                    <td><%=farmer[i].email%></td>
-                    <td><%=farmer[i].phoneNumber%></td>
-                    <td><%=farmer[i].createdAt.toISOString().split("T")[0]%></td>
+                    <td><%=product[i].productname%> </td>
+                    <td><%=product[i].category%></td>
+                    <td>Nrs <%=product[i].price%></td>
+                    <td><%=product[i].grown%></td> 
+                    <td><%=product[i].availability%></td>                  
+                    <td><%=product[i].createdAt.toISOString().split("T")[0]%></td>
                     <td class="action-menu">
                       <i class="fa-solid fa-ellipsis"></i>
                       <ul class="action-btn">
-                        <li><button type="submit" onclick="productDetails('<%= farmer[i].id %>')"><i class="fa-solid fa-circle-info"></i>View Details</button></li>
-                        <li><button type="submit" onclick="deleteProduct('<%= farmer[i].id %>')"><i class="fa-solid fa-trash"></i>Delete</button></li>
+                        <li><button type="submit" onclick="productDetails('<%= product[i].id %>')"><i class="fa-solid fa-circle-info"></i>View Details</button></li>
+                        <li><button type="submit" onclick="deleteProduct('<%= product[i].id %>')"><i class="fa-solid fa-trash"></i>Delete</button></li>
                       </ul>
                     </td>
                   </tr>
@@ -34,10 +38,12 @@
               </tbody>
               <tfoot>
                 <tr>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Phone No</th>
-                  <th>Joined Date</th>
+                  <th>Product Name</th>
+                  <th>Category</th>
+                  <th>Price</th>
+                  <th>Grown</th>
+                  <th>Availability</th>
+                  <th>Posted on</th>
                 </tr>
               </tfoot>
             </table>    
