@@ -36,7 +36,7 @@
                             <p class="price">Nrs: 50<span>/kg</span></p>
                         </div>
                         <p class="quantity">Quantity: 200kg available</p>
-                        <button class="details-btn">View details</button>
+                        <button class="details-btn" onclick="productDetails('')">View details</button>
                     </div>
                 </div>
                 <div class="item">
@@ -52,7 +52,7 @@
                             <p class="price">Nrs: 50<span>/kg</span></p>
                         </div>
                         <p class="quantity">Quantity: 200kg available</p>
-                        <button class="details-btn">View details</button>
+                        <button class="details-btn" onclick="productDetails('')">View details</button>
                     </div>
                 </div>
                 <div class="item">
@@ -68,7 +68,7 @@
                             <p class="price">Nrs: 50<span>/kg</span></p>
                         </div>
                         <p class="quantity">Quantity: 200kg available</p>
-                        <button class="details-btn">View details</button>
+                        <button class="details-btn" onclick="productDetails('')">View details</button>
                     </div>
                 </div>
                 <div class="item">
@@ -84,7 +84,7 @@
                             <p class="price">Nrs: 50<span>/kg</span></p>
                         </div>
                         <p class="quantity">Quantity: 200kg available</p>
-                        <button class="details-btn">View details</button>
+                        <button class="details-btn" onclick="productDetails('')">View details</button>
                     </div>
                 </div>
             </section>
@@ -429,5 +429,11 @@
 
     <script src="/js/dashboard/index.js"></script>
 
+<script>
+      const productDetails = ()=>{
+    location.href= "/productInfo"
+  }
+  
+</script>
 </body>
 </html>

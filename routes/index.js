@@ -38,6 +38,13 @@ router.get('/product',(req, res) => {
     res.render('home/product.ejs', {auth: false})
 })
 
+router.get('/productInfo',(req, res) => {
+    if( req.isAuthenticated()){
+        return res.render('home/productInfo.ejs', {auth: true, user: req.user})
+    }
+    res.render('home/productInfo.ejs', {auth: false})
+})
+
 //rout for login page
 router.get('/login',isguest, (req,res)=>{
     res.render('home/login.ejs',{ auth: false})

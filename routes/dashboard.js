@@ -69,5 +69,12 @@ router.post('/post',uploadProductImages, async (req, res) => {
     }
 });
 
+router.get('/message', (req, res) => {
+    res.render('dashboard/message.ejs',{user:req.user})
+})
+
+router.get('/setting', (req, res) => {
+    res.render('dashboard/setting.ejs',{user:req.user})
+})
 
 module.exports=router;
