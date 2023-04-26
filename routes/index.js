@@ -1,5 +1,5 @@
 const router =require('express').Router();
-const {User}= require('../models/Model')
+const {User, Categories,Product}= require('../models/Model')
 const bcrypt = require('bcrypt');
 const passport = require('passport');
 
@@ -29,13 +29,6 @@ router.get('/', (req, res)=>{
         return res.render('home/home.ejs', {auth: true, user: req.user})
     }
     res.render('home/home.ejs', {auth: false})
-})
-
-router.get('/product',(req, res) => {
-    if( req.isAuthenticated()){
-        return res.render('home/product.ejs', {auth: true, user: req.user})
-    }
-    res.render('home/product.ejs', {auth: false})
 })
 
 router.get('/productInfo',(req, res) => {
@@ -125,6 +118,23 @@ router.post('/register' ,isguest,(req, res)=>{
         }
     })
 })
+
+router.get('/product', async (req, res) => {
+    const vegetables = await Product.findAll({ where: { category: "Vegetable" },include: { model: User} })
+    const fruits = await Product.findAll({ where: { category: "Fruits" },include: { model: User}  })
+    const cashCrops = await Product.findAll({ where: { category: "Cash crops" } ,include: { model: User} })
+    const foodCrops = await Product.findAll({ where: { category: "Food crops" } ,include: { model: User} })
+    const dairyProducts = await Product.findAll({ where: { category: "Dairy" } ,include: { model: User} })
+    const nonVegProducts = await Product.findAll({ where: { category: "Non-veg" } ,include: { model: User} })
+    
+
+    if (req.isAuthenticated()) {
+        return res.render('home/product.ejs', { auth: true, user: req.user, vegetables: vegetables, fruits: fruits ,cashCrops: cashCrops, foodCrops: foodCrops, dairyProducts: dairyProducts, nonVegProducts: nonVegProducts })
+    }
+    res.render('home/product.ejs', { auth: false, vegetables: vegetables, fruits: fruits,cashCrops: cashCrops, foodCrops: foodCrops, dairyProducts: dairyProducts, nonVegProducts: nonVegProducts  })
+})
+
+
 
 router.get('/logout',function(req,res,next){
     req.logout(function(err){
