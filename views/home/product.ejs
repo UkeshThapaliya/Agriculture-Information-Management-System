@@ -161,22 +161,24 @@
             </section>
         
             <section id="cash-crops" class="content-wrapper">
-                <div class="item">
-                    <div class="img">
-                        <img src="/styles/images/vegetable.png" alt="">
-                    </div>
-                    <div class="info-wrapper">
-                        <div class="info">
-                            <div class="title">
-                                <h3>Sugar Cane</h3>
-                                <p>Farmer: Bhim magar</p>
-                            </div>
-                            <p class="price">Nrs: 50<span>/kg</span></p>
+                <% for(var i=0; i < cashCrops.length; i++){ %>
+                    <div class="item">
+                        <div class="img">
+                            <img src="/<%=cashCrops[i].productImg %>" alt="">
                         </div>
-                        <p class="quantity">Quantity: 200kg available</p>
-                        <button class="details-btn">View details</button>
+                        <div class="info-wrapper">
+                            <div class="info">
+                                <div class="title">
+                                    <h3><%= cashCrops[i].productname %></h3>
+                                    <p>Farmer: <%= cashCrops[i].User.name %></p>
+                                </div>
+                                <p class="price">Nrs: <%= cashCrops[i].price %><span>/kg</span></p>
+                            </div>
+                            <p class="quantity">Origin: <%= cashCrops[i].origin %> <%= cashCrops[i].grown %></p>
+                            <button class="details-btn" onclick="productDetails('')">View details</button>
+                        </div>
                     </div>
-                </div>
+                    <% } %>
                 <div class="item">
                     <div class="img">
                         <img src="/styles/images/vegetable.png" alt="">
