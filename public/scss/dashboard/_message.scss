@@ -1,0 +1,71 @@
+.message{
+    h2{
+        font-weight: 700;
+        font-size: 32px;
+    }
+    .accodion{
+        width: 900px;
+        li{
+            list-style: none;
+            width: 100%;
+            margin-bottom: 10px;
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid rgba(201, 201, 201, 0.8);
+            border-radius: 5px;
+            input[type="radio"]{
+                display: none;
+            }
+            input[type="radio"]:checked + .content{
+               max-height: 400px;
+            }
+            label{
+                padding: 5px;
+                display: flex;
+                align-items: center;
+                justify-content:space-between ;
+                font-weight: 400;
+                font-size: 20px;
+                cursor: pointer;
+                color: #867A8F;
+                span{
+                    transform: rotate(90deg);
+                    width: 40px;
+                    color: #867A8F;
+                }
+            }
+            .content{
+                margin: 10px;
+                padding: 0 10px;
+                line-height: 26px;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.5s;
+                .Bold{
+                    margin: 10px;
+                    font-weight: 500;
+                    font-size: 20px;
+                    color: #595959;
+                }
+                .khoi{
+                    margin: 10px;
+                    font-weight: 400;
+                    font-size: 20px;
+                    color: #867A8F;
+                }
+                button{
+                    margin-top: 10px;
+                    font-weight: 700;
+                    font-size: 20px;
+                    color:white;
+                    width: 90px;
+                    height: 35px;
+                    background-color: $primary-color;
+                    border-radius: 10px;
+                    border: none;
+                }
+            }
+            
+        }
+    }
+}
