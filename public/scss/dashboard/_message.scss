@@ -5,6 +5,7 @@
     }
     .accodion{
         width: 900px;
+        margin-top: 50px;
         li{
             list-style: none;
             width: 100%;
@@ -29,6 +30,7 @@
                 cursor: pointer;
                 color: #867A8F;
                 span{
+                    margin-top: 5px;
                     transform: rotate(90deg);
                     width: 40px;
                     color: #867A8F;

@@ -1263,6 +1263,7 @@ header ul li a:hover {
 }
 .message .accodion {
   width: 900px;
+  margin-top: 50px;
 }
 .message .accodion li {
   list-style: none;
@@ -1290,6 +1291,7 @@ header ul li a:hover {
   color: #867A8F;
 }
 .message .accodion li label span {
+  margin-top: 5px;
   transform: rotate(90deg);
   width: 40px;
   color: #867A8F;
