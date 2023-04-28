@@ -1022,6 +1022,86 @@ header ul li a:hover {
   gap: 30px;
 }
 
+.productinfo .product1 {
+  display: flex;
+  flex-direction: row;
+}
+.productinfo .product1 .product h2 {
+  font-weight: 700;
+  font-size: 35px;
+  padding: 5px;
+}
+.productinfo .product1 .product img {
+  height: 389.921875px;
+  width: 536.8561401367px;
+  left: 151px;
+  top: 238.078125px;
+  border-radius: 16.1235523224px;
+}
+.productinfo .product1 .text {
+  margin-top: 20px;
+  margin-left: 230px;
+  display: flex;
+}
+.productinfo .product1 .text .kxa {
+  width: 90px;
+}
+.productinfo .product1 .text .kxa .hi {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+  color: black;
+}
+.productinfo .product1 .text .kxa p {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  color: black;
+  padding: 5px;
+}
+.productinfo .product1 .text .timi {
+  margin-left: 190px;
+}
+.productinfo .product1 .text .timi .hello {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+  color: black;
+}
+.productinfo .product1 .text .timi p {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  color: black;
+  padding: 5px;
+}
+.productinfo .button {
+  margin-top: 50px;
+  margin-bottom: 10px;
+}
+.productinfo .button .hi-btn {
+  width: 150px;
+  height: 47px;
+  background-color: #F8FAFE;
+  border: 1px solid #557100;
+  border-radius: 20px;
+}
+.productinfo .button .hi-btn .me-btn {
+  color: #557100;
+  justify-content: center;
+}
+.productinfo .description {
+  margin-top: 30px;
+  font-weight: 400;
+  font-size: 16.1625px;
+  line-height: 24px;
+  text-align: justify;
+  letter-spacing: 0.035em;
+}
+.productinfo .description p {
+  color: black;
+}
+
 .farmer {
   margin-top: 30px;
 }
