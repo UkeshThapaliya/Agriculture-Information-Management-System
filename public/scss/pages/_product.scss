@@ -1,9 +1,8 @@
 .product-wrapper{
     margin-top:100px;
     display: flex;
-    justify-content: space-between;
     align-items: baseline;
-    gap: 150px;
+    gap: 90px;
     position: relative;
     .tabs{
         position: sticky;
@@ -20,6 +19,7 @@
         }
     }
     .product{
+        width: 100%;
         .search-wrapper{
             display: flex;
             justify-content: space-between;
@@ -51,11 +51,16 @@
                     width: 50px;
                 }
             }
-            
         }
         .content-wrapper{
             margin-top: 30px;
             gap: 30px;
+            .p-item{
+                width:300px !important;
+                .img{
+                    width: 100% !important;
+                }
+            }
         }
     }
 }
