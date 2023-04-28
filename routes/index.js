@@ -2,6 +2,8 @@ const router =require('express').Router();
 const {User, Categories,Product}= require('../models/Model')
 const bcrypt = require('bcrypt');
 const passport = require('passport');
+const {Op}=require('sequelize')
+
 
 const db=require('../connection')
 
@@ -120,6 +122,7 @@ router.post('/register' ,isguest,(req, res)=>{
 })
 
 router.get('/product', async (req, res) => {
+    var searchTerm = '';
     const vegetables = await Product.findAll({ where: { category: "Vegetable" },include: { model: User} })
     const fruits = await Product.findAll({ where: { category: "Fruits" },include: { model: User}  })
     const cashCrops = await Product.findAll({ where: { category: "Cash crops" } ,include: { model: User} })
@@ -129,11 +132,117 @@ router.get('/product', async (req, res) => {
     
 
     if (req.isAuthenticated()) {
-        return res.render('home/product.ejs', { auth: true, user: req.user, vegetables: vegetables, fruits: fruits ,cashCrops: cashCrops, foodCrops: foodCrops, dairyProducts: dairyProducts, nonVegProducts: nonVegProducts })
+        return res.render('home/product.ejs', { auth: true, user: req.user, vegetables: vegetables, fruits: fruits ,cashCrops: cashCrops, foodCrops: foodCrops, dairyProducts: dairyProducts, nonVegProducts: nonVegProducts, searchTerm: searchTerm  })
     }
-    res.render('home/product.ejs', { auth: false, vegetables: vegetables, fruits: fruits,cashCrops: cashCrops, foodCrops: foodCrops, dairyProducts: dairyProducts, nonVegProducts: nonVegProducts  })
+    res.render('home/product.ejs', { auth: false, vegetables: vegetables, fruits: fruits,cashCrops: cashCrops, foodCrops: foodCrops, dairyProducts: dairyProducts, nonVegProducts: nonVegProducts ,searchTerm: searchTerm  })
 })
 
+router.get('/search', async (req, res) => {
+    try {
+        const searchTerm = req.query.searchTerm;
+        console.log(searchTerm)
+
+        const vegetables = await Product.findAll({
+            where: {
+                category: "Vegetable",
+                productname: {
+                    [Op.like]: `%${searchTerm}%`
+                }
+            },
+            include: {
+                model: User
+            }
+        });
+
+        const fruits = await Product.findAll({
+            where: {
+                category: "Fruits",
+                productname: {
+                    [Op.like]: `%${searchTerm}%`
+                }
+            },
+            include: {
+                model: User
+            }
+        });
+
+        const cashCrops = await Product.findAll({
+            where: {
+                category: "Cash crops",
+                productname: {
+                    [Op.like]: `%${searchTerm}%`
+                }
+            },
+            include: {
+                model: User
+            }
+        });
+
+        const foodCrops = await Product.findAll({
+            where: {
+                category: "Food crops",
+                productname: {
+                    [Op.like]: `%${searchTerm}%`
+                }
+            },
+            include: {
+                model: User
+            }
+        });
+
+        const dairyProducts = await Product.findAll({
+            where: {
+                category: "Dairy",
+                productname: {
+                    [Op.like]: `%${searchTerm}%`
+                }
+            },
+            include: {
+                model: User
+            }
+        });
+
+        const nonVegProducts = await Product.findAll({
+            where: {
+                category: "Non-veg",
+                productname: {
+                    [Op.like]: `%${searchTerm}%`
+                }
+            },
+            include: {
+                model: User
+            }
+        });
+
+        if (req.isAuthenticated()) {
+            return res.render('home/product.ejs', {
+                auth: true,
+                user: req.user,
+                vegetables: vegetables,
+                fruits: fruits,
+                cashCrops: cashCrops,
+                foodCrops: foodCrops,
+                dairyProducts: dairyProducts,
+                nonVegProducts: nonVegProducts,
+                searchTerm: searchTerm
+            });
+        }
+
+        res.render('home/product.ejs', {
+            auth: false,
+            vegetables: vegetables,
+            fruits: fruits,
+            cashCrops: cashCrops,
+            foodCrops: foodCrops,
+            dairyProducts: dairyProducts,
+            nonVegProducts: nonVegProducts,
+            searchTerm: searchTerm
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('An error occurred while searching for products.');
+    }
+});
 
 
 router.get('/logout',function(req,res,next){

@@ -2,9 +2,63 @@ const router =require('express').Router();
 const {User,Product}=require('../models/Model')
 const {uploadFarmerImages, uploadProductImages}= require('../config/multer');
 
-router.get('/home', (req, res) => {
-    res.render('dashboard/home.ejs',{user:req.user})
-})
+// router.get('/home', async(req, res) => {
+
+//     const vegetables = await Product.findAll({ where: { category: "Vegetable" },include: { model: User} })
+//     const fruits = await Product.findAll({ where: { category: "Fruits" },include: { model: User}  })
+//     const cashCrops = await Product.findAll({ where: { category: "Cash crops" } ,include: { model: User} })
+//     const foodCrops = await Product.findAll({ where: { category: "Food crops" } ,include: { model: User} })
+//     const dairyProducts = await Product.findAll({ where: { category: "Dairy" } ,include: { model: User} })
+//     const nonVegProducts = await Product.findAll({ where: { category: "Non-veg" } ,include: { model: User} })
+    
+//     res.render('dashboard/home.ejs',{user:req.user,vegetables: vegetables, fruits: fruits ,cashCrops: cashCrops, foodCrops: foodCrops, dairyProducts: dairyProducts, nonVegProducts: nonVegProducts})
+// })
+router.get('/home', async (req, res) => {
+    const userId = req.user.id;
+    const product =await Product.findAll()
+    const farmer =await User.findAll()
+    const vegetables = await Product.findAll({
+        where: { category: "Vegetable", userId },
+        include: { model: User }
+    });
+
+    const fruits = await Product.findAll({
+        where: { category: "Fruits", userId },
+        include: { model: User }
+    });
+
+    const cashCrops = await Product.findAll({
+        where: { category: "Cash crops", userId },
+        include: { model: User }
+    });
+
+    const foodCrops = await Product.findAll({
+        where: { category: "Food crops", userId },
+        include: { model: User }
+    });
+
+    const dairyProducts = await Product.findAll({
+        where: { category: "Dairy", userId },
+        include: { model: User }
+    });
+
+    const nonVegProducts = await Product.findAll({
+        where: { category: "Non-veg", userId },
+        include: { model: User }
+    });
+
+    res.render('dashboard/home.ejs', {
+        user: req.user,
+        farmer,
+        product,
+        vegetables,
+        fruits,
+        cashCrops,
+        foodCrops,
+        dairyProducts,
+        nonVegProducts
+    });
+});
 
 router.get('/farmer', (req, res) => {
     Product.findAll({where:{UserId:req.user.id}}).then((product)=>{

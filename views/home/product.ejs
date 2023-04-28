@@ -14,8 +14,8 @@
             <div class="search-wrapper">
                 <h2>Products</h2>
                 <div class="search">
-                    <input type="text" placeholder="Search">
-                    <button class="search-btn">
+                    <input type="text" id="searcher" placeholder="" value="<%= searchTerm || '' %>">
+                    <button class="search-btn" id="search-btn">
                         <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M23.0556 24L14.3056 15.6C13.6111 16.1333 12.8125 16.5556 11.9097 16.8667C11.0069 17.1778 10.0463 17.3333 9.02778 17.3333C6.50463 17.3333 4.36944 16.4942 2.62222 14.816C0.875 13.1378 0.000925926 11.088 0 8.66667C0 6.24444 0.874074 4.19467 2.62222 2.51733C4.37037 0.84 6.50556 0.000888889 9.02778 0C11.5509 0 13.6861 0.839111 15.4333 2.51733C17.1806 4.19556 18.0546 6.24533 18.0556 8.66667C18.0556 9.64444 17.8935 10.5667 17.5694 11.4333C17.2454 12.3 16.8056 13.0667 16.25 13.7333L25 22.1333L23.0556 24ZM9.02778 14.6667C10.7639 14.6667 12.2398 14.0831 13.4556 12.916C14.6713 11.7489 15.2787 10.3324 15.2778 8.66667C15.2778 7 14.6699 5.58311 13.4542 4.416C12.2384 3.24889 10.763 2.66578 9.02778 2.66667C7.29167 2.66667 5.81574 3.25022 4.6 4.41733C3.38426 5.58444 2.77685 7.00089 2.77778 8.66667C2.77778 10.3333 3.38565 11.7502 4.60139 12.9173C5.81713 14.0844 7.29259 14.6676 9.02778 14.6667Z" fill="white"/>
                         </svg>
@@ -24,7 +24,7 @@
             </div>
             <section id="vegetable" class="content-wrapper active">
                 <% for(var i=0; i < vegetables.length; i++){ %>
-                <div class="item">
+                <div class="item p-item">
                     <div class="img">
                         <img src="/<%=vegetables[i].productImg %>" alt="">
                     </div>
@@ -41,59 +41,11 @@
                     </div>
                 </div>
                 <% } %>
-                <div class="item">
-                    <div class="img">
-                        <img src="/styles/images/vegetable.png" alt="">
-                    </div>
-                    <div class="info-wrapper">
-                        <div class="info">
-                            <div class="title">
-                                <h3>Mushroom</h3>
-                                <p>Farmer: Bhim magar</p>
-                            </div>
-                            <p class="price">Nrs: 50<span>/kg</span></p>
-                        </div>
-                        <p class="quantity">Quantity: 200kg available</p>
-                        <button class="details-btn" onclick="productDetails('')">View details</button>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="img">
-                        <img src="/styles/images/vegetable.png" alt="">
-                    </div>
-                    <div class="info-wrapper">
-                        <div class="info">
-                            <div class="title">
-                                <h3>Mushroom</h3>
-                                <p>Farmer: Bhim magar</p>
-                            </div>
-                            <p class="price">Nrs: 50<span>/kg</span></p>
-                        </div>
-                        <p class="quantity">Quantity: 200kg available</p>
-                        <button class="details-btn" onclick="productDetails('')">View details</button>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="img">
-                        <img src="/styles/images/vegetable.png" alt="">
-                    </div>
-                    <div class="info-wrapper">
-                        <div class="info">
-                            <div class="title">
-                                <h3>Mushroom</h3>
-                                <p>Farmer: Bhim magar</p>
-                            </div>
-                            <p class="price">Nrs: 50<span>/kg</span></p>
-                        </div>
-                        <p class="quantity">Quantity: 200kg available</p>
-                        <button class="details-btn" onclick="productDetails('')">View details</button>
-                    </div>
-                </div>
             </section>
         
             <section id="fruits" class="content-wrapper">
                 <% for(var i=0; i < fruits.length; i++){ %>
-                    <div class="item">
+                    <div class="item p-item">
                         <div class="img">
                             <img src="/<%=fruits[i].productImg %>" alt="">
                         </div>
@@ -110,334 +62,118 @@
                         </div>
                     </div>
                 <% } %>
-                <div class="item">
-                    <div class="img">
-                        <img src="/styles/images/vegetable.png" alt="">
-                    </div>
-                    <div class="info-wrapper">
-                        <div class="info">
-                            <div class="title">
-                                <h3>Mushroom</h3>
-                                <p>Farmer: Bhim magar</p>
-                            </div>
-                            <p class="price">Nrs: 50<span>/kg</span></p>
-                        </div>
-                        <p class="quantity">Quantity: 200kg available</p>
-                        <button class="details-btn">View details</button>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="img">
-                        <img src="/styles/images/vegetable.png" alt="">
-                    </div>
-                    <div class="info-wrapper">
-                        <div class="info">
-                            <div class="title">
-                                <h3>Mushroom</h3>
-                                <p>Farmer: Bhim magar</p>
-                            </div>
-                            <p class="price">Nrs: 50<span>/kg</span></p>
-                        </div>
-                        <p class="quantity">Quantity: 200kg available</p>
-                        <button class="details-btn">View details</button>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="img">
-                        <img src="/styles/images/vegetable.png" alt="">
-                    </div>
-                    <div class="info-wrapper">
-                        <div class="info">
-                            <div class="title">
-                                <h3>Mushroom</h3>
-                                <p>Farmer: Bhim magar</p>
-                            </div>
-                            <p class="price">Nrs: 50<span>/kg</span></p>
-                        </div>
-                        <p class="quantity">Quantity: 200kg available</p>
-                        <button class="details-btn">View details</button>
-                    </div>
-                </div>
             </section>
         
             <section id="cash-crops" class="content-wrapper">
-                <div class="item">
-                    <div class="img">
-                        <img src="/styles/images/vegetable.png" alt="">
-                    </div>
-                    <div class="info-wrapper">
-                        <div class="info">
-                            <div class="title">
-                                <h3>Sugar Cane</h3>
-                                <p>Farmer: Bhim magar</p>
-                            </div>
-                            <p class="price">Nrs: 50<span>/kg</span></p>
+                <% for(var i=0; i < cashCrops.length; i++){ %>
+                    <div class="item p-item">
+                        <div class="img">
+                            <img src="/<%=cashCrops[i].productImg %>" alt="">
                         </div>
-                        <p class="quantity">Quantity: 200kg available</p>
-                        <button class="details-btn">View details</button>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="img">
-                        <img src="/styles/images/vegetable.png" alt="">
-                    </div>
-                    <div class="info-wrapper">
-                        <div class="info">
-                            <div class="title">
-                                <h3>Mushroom</h3>
-                                <p>Farmer: Bhim magar</p>
+                        <div class="info-wrapper">
+                            <div class="info">
+                                <div class="title">
+                                    <h3><%= cashCrops[i].productname %></h3>
+                                    <p>Farmer: <%= cashCrops[i].User.name %></p>
+                                </div>
+                                <p class="price">Nrs: <%= cashCrops[i].price %><span>/kg</span></p>
                             </div>
-                            <p class="price">Nrs: 50<span>/kg</span></p>
+                            <p class="quantity">Origin: <%= cashCrops[i].origin %> <%= cashCrops[i].grown %></p>
+                            <button class="details-btn" onclick="productDetails('')">View details</button>
                         </div>
-                        <p class="quantity">Quantity: 200kg available</p>
-                        <button class="details-btn">View details</button>
                     </div>
-                </div>
-                <div class="item">
-                    <div class="img">
-                        <img src="/styles/images/vegetable.png" alt="">
-                    </div>
-                    <div class="info-wrapper">
-                        <div class="info">
-                            <div class="title">
-                                <h3>Mushroom</h3>
-                                <p>Farmer: Bhim magar</p>
-                            </div>
-                            <p class="price">Nrs: 50<span>/kg</span></p>
-                        </div>
-                        <p class="quantity">Quantity: 200kg available</p>
-                        <button class="details-btn">View details</button>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="img">
-                        <img src="/styles/images/vegetable.png" alt="">
-                    </div>
-                    <div class="info-wrapper">
-                        <div class="info">
-                            <div class="title">
-                                <h3>Mushroom</h3>
-                                <p>Farmer: Bhim magar</p>
-                            </div>
-                            <p class="price">Nrs: 50<span>/kg</span></p>
-                        </div>
-                        <p class="quantity">Quantity: 200kg available</p>
-                        <button class="details-btn">View details</button>
-                    </div>
-                </div>
+                    <% } %>
             </section> 
         
             <section id="food-crops" class="content-wrapper">
-                <div class="item">
-                    <div class="img">
-                        <img src="/styles/images/vegetable.png" alt="">
-                    </div>
-                    <div class="info-wrapper">
-                        <div class="info">
-                            <div class="title">
-                                <h3>Wheat</h3>
-                                <p>Farmer: Bhim magar</p>
-                            </div>
-                            <p class="price">Nrs: 50<span>/kg</span></p>
+                <% for(var i=0; i < foodCrops.length; i++){ %>
+                    <div class="item p-item">
+                        <div class="img">
+                            <img src="/<%=foodCrops[i].productImg %>" alt="">
                         </div>
-                        <p class="quantity">Quantity: 200kg available</p>
-                        <button class="details-btn">View details</button>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="img">
-                        <img src="/styles/images/vegetable.png" alt="">
-                    </div>
-                    <div class="info-wrapper">
-                        <div class="info">
-                            <div class="title">
-                                <h3>Mushroom</h3>
-                                <p>Farmer: Bhim magar</p>
+                        <div class="info-wrapper">
+                            <div class="info">
+                                <div class="title">
+                                    <h3><%= foodCrops[i].productname %></h3>
+                                    <p>Farmer: <%= foodCrops[i].User.name %></p>
+                                </div>
+                                <p class="price">Nrs: <%= foodCrops[i].price %><span>/kg</span></p>
                             </div>
-                            <p class="price">Nrs: 50<span>/kg</span></p>
+                            <p class="quantity">Origin: <%= foodCrops[i].origin %> <%= foodCrops[i].grown %></p>
+                            <button class="details-btn" onclick="productDetails('')">View details</button>
                         </div>
-                        <p class="quantity">Quantity: 200kg available</p>
-                        <button class="details-btn">View details</button>
                     </div>
-                </div>
-                <div class="item">
-                    <div class="img">
-                        <img src="/styles/images/vegetable.png" alt="">
-                    </div>
-                    <div class="info-wrapper">
-                        <div class="info">
-                            <div class="title">
-                                <h3>Mushroom</h3>
-                                <p>Farmer: Bhim magar</p>
-                            </div>
-                            <p class="price">Nrs: 50<span>/kg</span></p>
-                        </div>
-                        <p class="quantity">Quantity: 200kg available</p>
-                        <button class="details-btn">View details</button>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="img">
-                        <img src="/styles/images/vegetable.png" alt="">
-                    </div>
-                    <div class="info-wrapper">
-                        <div class="info">
-                            <div class="title">
-                                <h3>Mushroom</h3>
-                                <p>Farmer: Bhim magar</p>
-                            </div>
-                            <p class="price">Nrs: 50<span>/kg</span></p>
-                        </div>
-                        <p class="quantity">Quantity: 200kg available</p>
-                        <button class="details-btn">View details</button>
-                    </div>
-                </div>
+                    <% } %>
             </section>
         
             <section id="dairy" class="content-wrapper">
-                <div class="item">
-                    <div class="img">
-                        <img src="/styles/images/vegetable.png" alt="">
-                    </div>
-                    <div class="info-wrapper">
-                        <div class="info">
-                            <div class="title">
-                                <h3>Milk</h3>
-                                <p>Farmer: Bhim magar</p>
-                            </div>
-                            <p class="price">Nrs: 50<span>/kg</span></p>
+                <% for(var i=0; i < dairyProducts.length; i++){ %>
+                    <div class="item p-item">
+                        <div class="img">
+                            <img src="/<%=dairyProducts[i].productImg %>" alt="">
                         </div>
-                        <p class="quantity">Quantity: 200kg available</p>
-                        <button class="details-btn">View details</button>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="img">
-                        <img src="/styles/images/vegetable.png" alt="">
-                    </div>
-                    <div class="info-wrapper">
-                        <div class="info">
-                            <div class="title">
-                                <h3>Mushroom</h3>
-                                <p>Farmer: Bhim magar</p>
+                        <div class="info-wrapper">
+                            <div class="info">
+                                <div class="title">
+                                    <h3><%= dairyProducts[i].productname %></h3>
+                                    <p>Farmer: <%= dairyProducts[i].User.name %></p>
+                                </div>
+                                <p class="price">Nrs: <%= dairyProducts[i].price %><span>/kg</span></p>
                             </div>
-                            <p class="price">Nrs: 50<span>/kg</span></p>
+                            <p class="quantity">Origin: <%= dairyProducts[i].origin %> <%= dairyProducts[i].grown %></p>
+                            <button class="details-btn" onclick="productDetails('')">View details</button>
                         </div>
-                        <p class="quantity">Quantity: 200kg available</p>
-                        <button class="details-btn">View details</button>
                     </div>
-                </div>
-                <div class="item">
-                    <div class="img">
-                        <img src="/styles/images/vegetable.png" alt="">
-                    </div>
-                    <div class="info-wrapper">
-                        <div class="info">
-                            <div class="title">
-                                <h3>Mushroom</h3>
-                                <p>Farmer: Bhim magar</p>
-                            </div>
-                            <p class="price">Nrs: 50<span>/kg</span></p>
-                        </div>
-                        <p class="quantity">Quantity: 200kg available</p>
-                        <button class="details-btn">View details</button>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="img">
-                        <img src="/styles/images/vegetable.png" alt="">
-                    </div>
-                    <div class="info-wrapper">
-                        <div class="info">
-                            <div class="title">
-                                <h3>Mushroom</h3>
-                                <p>Farmer: Bhim magar</p>
-                            </div>
-                            <p class="price">Nrs: 50<span>/kg</span></p>
-                        </div>
-                        <p class="quantity">Quantity: 200kg available</p>
-                        <button class="details-btn">View details</button>
-                    </div>
-                </div>
+                    <% } %>
             </section>
         
             <section id="non-veg" class="content-wrapper">
-                <div class="item">
-                    <div class="img">
-                        <img src="/styles/images/vegetable.png" alt="">
-                    </div>
-                    <div class="info-wrapper">
-                        <div class="info">
-                            <div class="title">
-                                <h3>Meat</h3>
-                                <p>Farmer: Bhim magar</p>
-                            </div>
-                            <p class="price">Nrs: 50<span>/kg</span></p>
+                <% for(var i=0; i < nonVegProducts.length; i++){ %>
+                    <div class="item p-item">
+                        <div class="img">
+                            <img src="/<%=nonVegProducts[i].productImg %>" alt="">
                         </div>
-                        <p class="quantity">Quantity: 200kg available</p>
-                        <button class="details-btn">View details</button>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="img">
-                        <img src="/styles/images/vegetable.png" alt="">
-                    </div>
-                    <div class="info-wrapper">
-                        <div class="info">
-                            <div class="title">
-                                <h3>Mushroom</h3>
-                                <p>Farmer: Bhim magar</p>
+                        <div class="info-wrapper">
+                            <div class="info">
+                                <div class="title">
+                                    <h3><%= nonVegProducts[i].productname %></h3>
+                                    <p>Farmer: <%= nonVegProducts[i].User.name %></p>
+                                </div>
+                                <p class="price">Nrs: <%= nonVegProducts[i].price %><span>/kg</span></p>
                             </div>
-                            <p class="price">Nrs: 50<span>/kg</span></p>
+                            <p class="quantity">Origin: <%= nonVegProducts[i].origin %> <%= nonVegProducts[i].grown %></p>
+                            <button class="details-btn" onclick="productDetails('')">View details</button>
                         </div>
-                        <p class="quantity">Quantity: 200kg available</p>
-                        <button class="details-btn">View details</button>
                     </div>
-                </div>
-                <div class="item">
-                    <div class="img">
-                        <img src="/styles/images/vegetable.png" alt="">
-                    </div>
-                    <div class="info-wrapper">
-                        <div class="info">
-                            <div class="title">
-                                <h3>Mushroom</h3>
-                                <p>Farmer: Bhim magar</p>
-                            </div>
-                            <p class="price">Nrs: 50<span>/kg</span></p>
-                        </div>
-                        <p class="quantity">Quantity: 200kg available</p>
-                        <button class="details-btn">View details</button>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="img">
-                        <img src="/styles/images/vegetable.png" alt="">
-                    </div>
-                    <div class="info-wrapper">
-                        <div class="info">
-                            <div class="title">
-                                <h3>Mushroom</h3>
-                                <p>Farmer: Bhim magar</p>
-                            </div>
-                            <p class="price">Nrs: 50<span>/kg</span></p>
-                        </div>
-                        <p class="quantity">Quantity: 200kg available</p>
-                        <button class="details-btn">View details</button>
-                    </div>
-                </div>
+                    <% } %>
             </section>
         </section>
     </section>
 
 
-    <script src="/js/dashboard/index.js"></script>
-
+<script src="/js/dashboard/index.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
-      const productDetails = ()=>{
+$("#search-btn").on("click", (e) => {
+    var searchTerm = $("#searcher").val();
+    console.log(searchTerm);
+    if (searchTerm == '') {
+        e.preventDefault();
+    } else {
+        window.location.href = `/search?searchTerm=${searchTerm}`;
+    }
+});
+
+$("#searcher").keyup(function() {
+    if ($(this).val() === '') {
+        window.location.href = '/product';
+    }
+});
+
+const productDetails = () => {
     location.href= "/productInfo"
-  }
-  
+}
+
 </script>
 </body>
 </html>

@@ -40,16 +40,16 @@
                     <div class="form-input password">
                         <label for="password">Password</label>
                         <div>
-                            <input id ="password" type="password" name="password" id="password" placeholder="Enter your password" required>
-                            <img id="hide" src="styles/images/eye.png" alt="">
+                            <input id ="password" type="password" name="password" class="show" placeholder="Enter your password" required>
+                            <img id="show-password-1" src="styles/images/eye.png" alt="">
                         </div>
                     </div>
 
                     <div class="form-input password">
                         <label for="password"> Confirm Password</label>
                         <div>
-                            <input id="confirmpassword" type="password" name="password" id="password" placeholder="Enter your password" required>
-                            <img id="hide" src="styles/images/eye.png" alt="">
+                            <input id="confirmpassword" type="password" name="password" class="show" placeholder="Enter your password" required>
+                            <img id="show-password-2" src="styles/images/eye.png" alt="">
                         </div>
                     </div>
                     <button id="registerBtn" name="register" class="submit">
@@ -68,6 +68,7 @@
     </div>
 
 <script src="/js/toast.js"></script>
+<script src="/js/register.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
     $("#registerBtn").on('click',(e)=>{
