@@ -3,37 +3,27 @@
     <%- include("../components/dashboard/sidebar") %>
     <main>
         <%- include("../components/dashboard/navbar") %>
-        <div class="message">
-            <h3>Message</h3>
-            <ul class="accodion">
-                <li>
-                    <label for="first">Email<span>&#x3e;</span></label>
-                    <input type="radio" name="accodion" id="first" checked>
-                    <div class="content">
-                        <p class="Bold">Subject: Full test</p>
-                        <p class="khoi">Message: This is full test of suport</p>
-                        <button>Reply</button>
+        <div class="message-wrapper">
+            <h1>Message</h1>
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-mdb-toggle="collapse" data-mdb-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <span>rohna@gmail.com</span>
+                        </button>
+                      </h2>
+                      <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-mdb-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <p class="subject">To buy product</p>
+                            <p class="message">Message: Hello rohan i want to buy product</p>
+                            <button type="button">Reply</button>
+                        </div>
+                      </div>
                     </div>
-                </li>
-                <li>
-                    <label for="second">Email<span>&#x3e;</span></label>
-                    <input type="radio" name="accodion" id="second">
-                    <div class="content">
-                        <p class="Bold">Subject: Full test</p>
-                        <p class="khoi">Message: This is full test of suport</p>
-                        <button>Reply</button>
-                    </div>
-                </li>
-                <li>
-                    <label for="third">Email<span>&#x3e;</span></label>
-                    <input type="radio" name="accodion" id="third" >
-                    <div class="content">
-                        <p class="Bold">Subject: Full test</p>
-                        <p class="khoi">Message: This is full test of suport</p>
-                        <button>Reply</button>
-                    </div>
-                </li>
-            </ul>
+                </div>
         </div>
     </main>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script>
+
 </body>
+</html>
