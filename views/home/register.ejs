@@ -101,6 +101,24 @@
                     text: 'Password and confirm password do not match',
                     icon: 'error',
                 });
+            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                $('#registerBtn').prop('disabled', false);
+                $('#loading').hide();
+                $('#noloading').show();
+                return Toast.fire({
+                    title: 'Error!',
+                    text: 'Please enter a valid email address',
+                    icon: 'error',
+                });
+            } else if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(password)) {
+                $('#registerBtn').prop('disabled', false);
+                $('#loading').hide();
+                $('#noloading').show();
+                return Toast.fire({
+                    title: 'Error!',
+                    text: 'Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number',
+                    icon: 'error',
+                });
             }
         return fetch('/register',{
             method: 'POST',
