@@ -1,0 +1,88 @@
+.productinfo{
+    .product1{
+       // margin-top: 40px;
+        display: flex;
+        flex-direction:row;
+        .product{
+            h2{
+                font-weight: 700;
+                font-size: 35px;
+                padding: 5px;
+            }
+            img{
+                height: 389.921875px;
+                width: 536.8561401367188px;
+                left: 151px;
+                top: 238.078125px;
+                border-radius: 16.123552322387695px;
+            }
+
+        }
+        .text{
+            margin-top: 20px;
+            margin-left: 190px;
+            margin-right: 30px;
+            display: flex;
+            .kxa{
+                width: 90px;
+                .hi{
+                    font-weight: 700;
+                    font-size: 18px;
+                    line-height: 26px;
+                    color: black;
+                }
+                p{
+                    font-weight: 400;
+                    font-size: 18px;
+                    line-height: 26px;
+                    color: black;
+                    padding:5px;
+                }
+                }
+            .timi{
+                margin-left: 170px;
+                .hello{
+                    font-weight: 700;
+                    font-size: 18px;
+                    line-height: 26px;
+                    color: black;
+                }
+                p{
+                    font-weight: 400;
+                    font-size: 18px;
+                    line-height: 26px;
+                    color: black;
+                    padding: 5px;
+                }
+            }
+        }
+    }
+    .button{
+        margin-top: 50px;
+        margin-bottom: 10px;
+        .hi-btn{
+            width: 150px;
+            height: 47px;
+            background-color: #F8FAFE;
+            border: 1px solid #557100;
+            border-radius: 20px;
+            .me-btn{
+                color: #557100;
+                justify-content: center;
+            }
+        }
+        
+    }
+    .description{
+        margin-top: 30px;
+        font-weight: 400;
+        font-size: 16.1625px;
+        line-height: 24px;
+        text-align: justify;
+        letter-spacing: 0.035em;
+        p{
+            color: black;
+        }
+    }
+    
+}
