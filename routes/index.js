@@ -33,11 +33,13 @@ router.get('/', (req, res)=>{
     res.render('home/home.ejs', {auth: false})
 })
 
-router.get('/productInfo',(req, res) => {
+router.get('/productInfo/:id',async(req, res) => {
+    const oneproduct = await Product.findOne({where:{id: req.params.id},include: { model: User}})
+    console.log(oneproduct)
     if( req.isAuthenticated()){
-        return res.render('home/productInfo.ejs', {auth: true, user: req.user})
+        return res.render('home/productInfo.ejs', {auth: true, user: req.user,oneproduct: oneproduct})
     }
-    res.render('home/productInfo.ejs', {auth: false})
+    res.render('home/productInfo.ejs', {auth: false,oneproduct: oneproduct})
 })
 
 //rout for login page
