@@ -106,8 +106,24 @@ const Product = db.define('Product', {
     },
 })
 
+const Message = db.define('message', {
+    email: {
+        type: DataTypes.STRING(50),
+        allowNull: false
+    },
+    subject: {
+        type: DataTypes.STRING(100),
+        allowNull: false
+    },
+    message: {
+        type: DataTypes.TEXT(),
+        allowNull: false
+    }
+})
+
 // db.sync({alter:true})
 
 Product.belongsTo(User); // Add foreign key constraint
+Message.belongsTo(User); 
 
-module.exports = {User,Categories,Product}    
+module.exports = {User,Categories,Product,Message}    

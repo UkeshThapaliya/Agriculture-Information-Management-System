@@ -1,5 +1,5 @@
 const router =require('express').Router();
-const {User, Categories,Product}= require('../models/Model')
+const {User, Categories,Product,Message}= require('../models/Model')
 const bcrypt = require('bcrypt');
 const passport = require('passport');
 const {Op}=require('sequelize')
@@ -33,14 +33,6 @@ router.get('/', (req, res)=>{
     res.render('home/home.ejs', {auth: false})
 })
 
-router.get('/productInfo/:id',async(req, res) => {
-    const oneproduct = await Product.findOne({where:{id: req.params.id},include: { model: User}})
-    console.log(oneproduct)
-    if( req.isAuthenticated()){
-        return res.render('home/productInfo.ejs', {auth: true, user: req.user,oneproduct: oneproduct})
-    }
-    res.render('home/productInfo.ejs', {auth: false,oneproduct: oneproduct})
-})
 
 //rout for login page
 router.get('/login',isguest, (req,res)=>{
@@ -246,6 +238,50 @@ router.get('/search', async (req, res) => {
     }
 });
 
+router.get('/productInfo/:id',async(req, res) => {
+    const oneproduct = await Product.findOne({where:{id: req.params.id},include: { model: User}})
+    console.log(oneproduct)
+    if( req.isAuthenticated()){
+        return res.render('home/productInfo.ejs', {auth: true, user: req.user,oneproduct: oneproduct})
+    }
+    res.render('home/productInfo.ejs', {auth: false,oneproduct: oneproduct})
+})
+
+router.post('/productInfo/message',async(req, res) => {
+    const email = req.body.email
+    const subject = req.body.subject
+    const message = req.body.message
+    const UserId=req.body.userid
+    console.log(email, subject, message,UserId)
+    try {
+        // Create a new product instance with the form data and uploaded image path
+        const newMessage = await Message.create({
+            email,
+            subject,
+            message,
+            UserId
+        });
+        if(newMessage){
+            console.log("Message saved successfully")
+            var data={
+                'title':'success',
+            }
+            res.json(data);
+        }else{
+            console.log("Message wasnot saved")
+            var data={
+                'title':'failed',
+            }
+            res.json(data);
+        }
+    } catch (error) {
+        console.error(error);
+        var data={
+            'title':'failed',
+        }
+        res.json(data);
+    }
+})
 
 router.get('/logout',function(req,res,next){
     req.logout(function(err){

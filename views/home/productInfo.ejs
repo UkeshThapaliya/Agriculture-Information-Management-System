@@ -8,6 +8,7 @@
                 <h2><%= oneproduct.productname %></h2>
                 <img src="/<%=oneproduct.productImg %>" alt="productinfo">
             </div>
+            <input id="id" type="text" value="<%= oneproduct.User.id%>" hidden>
             <div class="text">
                <div class="kxa">
                 <p class="hi">Owners</p>
@@ -38,12 +39,81 @@
             </div> 
            </div>
            <div class="button">
-            <button class="hi-btn"><span class="me-btn">Message Farmer</span></button>
+            <button class="hi-btn" onclick="reply('')"><span class="me-btn">Message Farmer</span></button>
            </div>
            <div class="description">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero ut porro necessitatibus quisquam architecto ad. Vitae adipisci, nostrum quaerat eaque odit recusandae, qui officiis architecto ratione accusantium temporibus dicta debitis.</p>
            </div>
         </div>
     </section>
+
+<script src="/js/toast.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+const reply = async () => {
+  const { value: formValues } = await Swal.fire({
+    title: 'Compose Email',
+    html:
+      '<input id="email" class="swal2-input" placeholder="Your email">' +
+      '<input id="subject" class="swal2-input" placeholder="Subject">' +
+      '<textarea id="message" class="swal2-textarea" placeholder="Message"></textarea>',
+    focusConfirm: false,
+    preConfirm: () => {
+      return [
+        document.getElementById('email').value,
+        document.getElementById('subject').value,
+        document.getElementById('message').value
+      ]
+    }
+  })
+
+  var userid=$("#id").val()
+  if (formValues) {
+    const [email, subject, message] = formValues // destructure form values into individual variables
+    
+    // Check if any form fields are empty
+    if (!email || !subject || !message) {
+      return Toast.fire({
+        title: 'Error!',
+        text: 'Please fill in all fields',
+        icon: 'error',
+      })
+    }
+
+    fetch('/productInfo/message', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ message, email, subject, userid:userid})
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.title == 'failure') {
+        Toast.fire({
+          title: 'Error!',
+          text: 'Unable to send message',
+          icon: 'error',
+        })
+      } else if (data.title == 'success') {
+        Toast.fire({
+          title: 'Success!',
+          text: 'Message sent successfully',
+          icon: 'success',
+        }).then(() => {
+          location.reload()
+        })
+      }
+    })
+    .catch(error => {
+      Toast.fire({
+        title: 'Error!',
+        text: 'An error occurred while sending the message. Please try again later.',
+        icon: 'error',
+      })
+    })
+  }
+}
+
+
+</script>
 </body>
 </html>

@@ -5,25 +5,32 @@
         <%- include("../components/dashboard/navbar") %>
         <div class="message-wrapper">
             <h1>Message</h1>
+            <% for(var i=0; i < message.length; i++){ %>
                 <div class="accordion" id="accordionExample">
                     <div class="accordion-item">
                       <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button" type="button" data-mdb-toggle="collapse" data-mdb-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            <span>rohna@gmail.com</span>
+                        <button class="accordion-button" type="button" data-mdb-toggle="collapse" data-mdb-target="#collapseOne<%= i %>" aria-expanded="true" aria-controls="collapseOne">
+                            <span>Email: <%= message[i].email %></span>
                         </button>
                       </h2>
-                      <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-mdb-parent="#accordionExample">
+                      <div id="collapseOne<%= i %>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-mdb-parent="#accordionExample">
                         <div class="accordion-body">
-                            <p class="subject">To buy product</p>
-                            <p class="message">Message: Hello rohan i want to buy product</p>
-                            <button type="button">Reply</button>
+                            <p class="subject">Subject: <%= message[i].subject %></p>
+                            <p class="message">Message: <%= message[i].message %></p>
+                            <button type="button" onclick="openGmail()">Reply</button>
                         </div>
                       </div>
                     </div>
                 </div>
+            <% } %>
         </div>
     </main>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script>
-
+    <script src="/js/dashboard/index.js"></script>
+    <script>
+      function openGmail() {
+        window.open("https://mail.google.com/mail/");
+      }
+      </script>
 </body>
 </html>

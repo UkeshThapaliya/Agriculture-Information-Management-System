@@ -1,5 +1,5 @@
 const router =require('express').Router();
-const {User,Product}=require('../models/Model')
+const {User,Product,Message}=require('../models/Model')
 const {uploadFarmerImages, uploadProductImages}= require('../config/multer');
 
 // router.get('/home', async(req, res) => {
@@ -123,8 +123,9 @@ router.post('/post',uploadProductImages, async (req, res) => {
     }
 });
 
-router.get('/message', (req, res) => {
-    res.render('dashboard/message.ejs',{user:req.user})
+router.get('/message', async(req, res) => {
+    const message= await Message.findAll({where:{UserId:req.user.id}})
+    res.render('dashboard/message.ejs',{user:req.user,message:message});
 })
 
 router.get('/setting', (req, res) => {
