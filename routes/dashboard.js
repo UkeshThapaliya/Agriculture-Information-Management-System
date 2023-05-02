@@ -132,4 +132,25 @@ router.get('/setting', (req, res) => {
     res.render('dashboard/setting.ejs',{user:req.user})
 })
 
+router.post('/setting',(req, res)=>{
+    User.findOne({where: {email: req.body.email}}).then((user)=>{
+        if (user){
+            console.log(req.body)
+            User.update({
+                // email:req.body.email,
+                name:req.body.name,
+                phoneNumber:req.body.phoneNumber,
+                address:req.body.address,
+            },{where:{email:req.body.email}}
+            ).then(() => {
+                res.json("changesucess")
+                console.log('Updated Profile successfully');
+            })
+        } else{
+            res.json("Error")
+        }
+
+    })
+})
+
 module.exports=router;

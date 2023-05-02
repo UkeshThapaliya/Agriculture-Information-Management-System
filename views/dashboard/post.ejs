@@ -30,7 +30,34 @@
                         <label for="">Price</label>
                         <input id="price" type="text" placeholder="Enter price">
                     </div>
-                   <div class="space">
+                    <div class="space">
+                        <label for="">Vitamins</label>
+                        <input id="vitamins" type="text" placeholder="C">
+                    </div>
+                    <div class="space">
+                        <label for="">Calories</label>
+                        <input id="calories" type="text" placeholder="41">
+                    </div>
+                    <div class="space">
+                        <label for="">Soil</label>
+                        <input id="soil" type="text" placeholder="sand">
+                    </div>
+                    <div class="space">
+                        <label for="">Origin</label>
+                        <input id="origin" type="text" placeholder="Dang">
+                    </div>
+                    <div class="space">
+                        <label for="">Shell life</label>
+                        <input id="shelflife" type="text" placeholder="15 days">
+                    </div>
+                    <div class="space">
+                        <label for="">Availability</label>
+                        <select palceholder="Yes" id="availability">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div class="space">
                         <label for="">Quality</label>
                         <select palceholder="A" id="quality">
                             <option value="A">A</option>
@@ -55,39 +82,13 @@
                             <option value="Industrail Grown">Industrail Grown</option>
                         </select>
                     </div>
-                    <div class="space">
-                        <label for="">Vitamins</label>
-                        <input id="vitamins" type="text" placeholder="C">
-                    </div>
-                    <div class="space">
-                        <label for="">Calories</label>
-                        <input id="calories" type="text" placeholder="41">
-                    </div>
-                    <div class="space">
-                        <label for="">Soil</label>
-                        <input id="soil" type="text" placeholder="sand">
-                    </div>
-                    <div class="space">
-                        <label for="">Origin</label>
-                        <input id="origin" type="text" placeholder="Dang">
-                    </div>
-                    <div class="space">
-                        <label for="">Availability</label>
-                        <select palceholder="Yes" id="availability">
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </select>
-                    </div>
-                    <div class="space">
-                        <label for="">Shell life</label>
-                        <input id="shelflife" type="text" placeholder="15 days">
-                    </div>
                 </div>
                 <div class="description">
                     <label for="">Description</label>
                     <textarea id="description" type="text"></textarea>
                 </div>
                 <input type="file" class="file" id="productImg" name="productImg">
+                <img id="previewImage" src="#" alt="" class="preview">
                 <button class="submit-btn" id="PostBtn" type="button" name="" value="">
                     <div id="loading2" class="loading" style="display: none;"></div>
                     <span id="noloading2" style="display: block;">Submit</span>
@@ -101,6 +102,21 @@
 <script src="/js/toast.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
+  // Get the file input element
+  const fileInput = document.getElementById('productImg');
+
+  // Add a change event listener to the file input
+  fileInput.addEventListener('change', (event) => {
+    // Get the selected file
+    const selectedFile = event.target.files[0];
+
+    // Create a URL for the selected file
+    const previewUrl = URL.createObjectURL(selectedFile);
+
+    // Set the src attribute of the img tag to the preview URL
+    const previewImage = document.getElementById('previewImage');
+    previewImage.src = previewUrl;
+  })
     $("#PostBtn").on("click",(e)=>{
         e.preventDefault();
         $('#noloading').hide();

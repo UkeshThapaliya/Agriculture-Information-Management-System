@@ -33,6 +33,10 @@ const User= db.define('User',{
         allowNull: false,
         defaultValue:"farmer"
     },
+    address:{
+        type:DataTypes.STRING(30),
+        defaultValue:"Nepal"
+    },
     profileImg:{
         type:DataTypes.TEXT()
     }

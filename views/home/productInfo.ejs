@@ -1,48 +1,94 @@
 <%- include("../components/head") %>
 <body>
     <%- include("../components/header") %>
-    <section class="container product-wrapper">
+    <section class="container productinfo-wrapper">
+      <h1><%= oneproduct.productname %></h1>
+      <div class="product-details">
+         <div class="product-img">
+           <img src="/<%=oneproduct.productImg %>" alt="productinfo">
+         </div>
+         <input id="id" type="text" value="<%= oneproduct.User.id%>" hidden>
+         <table>
+           <tr class="owners-info">
+             <td>Owners</td>
+             <td>Rohan</td>
+           </tr>
+           <tr class="price-info">
+             <td>Price</td>
+             <td class="price">80 Nrs</td>
+           </tr>
+           <tr>
+             <td>Quality</td>
+             <td>C</td>
+           </tr>
+           <tr>
+             <td>Size</td>
+             <td>Large</td>
+           </tr>
+           <tr>
+             <td>Grown</td>
+             <td>Locally</td>
+           </tr>
+           <tr>
+             <td>Vitamins</td>
+             <td>C</td>
+           </tr>
+           <tr>
+             <td>Calories</td>
+             <td>41</td>
+           </tr>
+           <tr>
+             <td>Soil</td>
+             <td>Drained</td>
+           </tr>
+           <tr>
+             <td>Origin</td>
+             <td>Dang</td>
+           </tr>
+           <tr>
+             <td>Availability</td>
+             <td>Yes</td>
+           </tr>
+           <tr>
+             <td>Shelf Life</td>
+             <td>15 days</td>
+           </tr>
+         </table>
+       <!-- <div class="text">
+          <div class="kxa">
+           <p class="hi">Owners</p>
+           <p>Price</p>
+           <p>Quality</p>
+           <p>Size</p>
+           <p>Growns</p>
+           <p>Vitamins</p>
+           <p>Calories</p>
+           <p>Soil</p>
+           <p>Origin</p>
+           <p>Availability:</p>
+           <p>Shelf Life</p>
+          </div>
+          <div class="timi">
+           <p class="hello"><%=oneproduct.User.name %></p>
+           <p class="red"><%=oneproduct.price %> Nrs</p>
+           <p><%=oneproduct.quality %></p>
+           <p>large</p>
+           <p>locally</p>
+           <p>C</p>
+           <p>41</p>
+           <p>Drained</p>
+           <p>Dang</p>
+           <p>Yes</p>
+           <p>15days</p>
+          </div>
+       </div>  -->
+      </div>
         <div class="productinfo">
-           <div class="product1">
-            <div class="product">
-                <h2><%= oneproduct.productname %></h2>
-                <img src="/<%=oneproduct.productImg %>" alt="productinfo">
-            </div>
-            <input id="id" type="text" value="<%= oneproduct.User.id%>" hidden>
-            <div class="text">
-               <div class="kxa">
-                <p class="hi">Owners</p>
-                <p>Price</p>
-                <p>Quality</p>
-                <p>Size</p>
-                <p>Growns</p>
-                <p>Vitamins</p>
-                <p>Calories</p>
-                <p>Soil</p>
-                <p>Origin</p>
-                <p>Availability:</p>
-                <p>Shelf Life</p>
-               </div>
-               <div class="timi">
-                <p class="hello">Bhunti</p>
-                <p class="red">Rs50</p>
-                <p>A</p>
-                <p>large</p>
-                <p>locally</p>
-                <p>C</p>
-                <p>41</p>
-                <p>Drained</p>
-                <p>Dang</p>
-                <p>Yes</p>
-                <p>15days</p>
-               </div>
-            </div> 
-           </div>
            <div class="button">
             <button class="hi-btn" onclick="reply('')"><span class="me-btn">Message Farmer</span></button>
            </div>
            <div class="description">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero ut porro necessitatibus quisquam architecto ad. Vitae adipisci, nostrum quaerat eaque odit recusandae, qui officiis architecto ratione accusantium temporibus dicta debitis.</p>
+            <p><%=oneproduct.description %></p>
            </div>
         </div>
     </section>

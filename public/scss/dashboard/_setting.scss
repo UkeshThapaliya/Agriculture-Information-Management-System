@@ -1,17 +1,23 @@
-.setting{
+.sett-htm{
+    background: #FFFFFF;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    width: 100%;
+    margin: 40px 0;
+    padding: 30px;
     .profile{
-        margin-left:50px;
+        display: flex;
+        flex-direction: row;
         font-weight: 700;
+        gap: 20px;
         font-size: 32px;
         line-height: 60px;
         color: rgba(25, 25, 25, 0.67);
         .enter{
-            margin-top: 40px;
             width: 65px;
             height: 65px;
         }
         .hair{
-            margin-top: 35px;
             padding: 16px;
             .user{
                 color: #414A4C;
@@ -27,50 +33,32 @@
             }
         }
     }
-    .sett-htm{
-        background: #FFFFFF;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
-        border-radius: 15px;
-        width: 1000px;
-        height: 688px;
-        .profile{
-            display: flex;
-            flex-direction: row;
+    .inputfield{
+        margin-top: 30px;
+        margin-bottom: 35px;
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        .text-btn{
+            font-weight: 400;
+            font-size: 16px;
+            color:#414A4C;
+            margin: 0;
         }
-        .inputfield{
-            margin-top: 30px;
-            display: flex;
-            justify-content: space-between;
-            .text-btn{
-                margin-left:50px;
-                font-weight: 400;
-                font-size: 18px;
-                color:#414A4C;
-            }
-            .search{
-                margin-right: 40px;
-                width: 725px;
-                height: 40px;
-            }
-        }
-        .laptop{
-            margin-left: 200px;
-            margin-top: 50px;
-            .set-htm{
-                width: 646px;
-                height: 48px;
-                background: #9AB200;
-                border-radius: 6px;
-                border: none;
-                .set-htn{
-                    font-weight: 400;
-                    font-size: 18px;
-                    line-height: 26px;
-                    align-items: center;
-                    color: #E4E5E7;
-                }
-            }
+        .search{
+            padding: 10px;
+            width: 725px;
+            height: 40px;
         }
     }
-    
+    .set-htm{
+        display: block;
+        padding: 10px 50px;
+        background: #9AB200;
+        border-radius: 6px;
+        border: none;
+        font-size: 18px;
+        color: #E4E5E7; 
+        margin: 0 auto;
+    }
 }
