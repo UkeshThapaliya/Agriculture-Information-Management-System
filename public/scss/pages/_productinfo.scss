@@ -69,4 +69,9 @@
     .swal2-confirm{
         background-color: #557100;
     }
+    .swal2-actions{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
 }

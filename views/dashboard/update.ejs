@@ -1,0 +1,206 @@
+<%- include("../components/head") %>
+<body>
+    <%- include("../components/dashboard/sidebar") %>
+    <main>
+        <%- include("../components/dashboard/navbar") %>
+        <div class="post">
+           <div class="container">
+            <div class="tittle">
+                <h1>Update Product</h1>
+            </div>
+            <form id="productForm"  enctype="multipart/form-data">
+                <div class="user">
+                    <div class="space">
+                        <label for="">Product name</label>
+                        <input id="productname" type="text" placeholder="Enter product name" value="<%= Uproduct.productname %>">
+                    </div>
+                    <div class="space" >
+                        <label for="">Category</label>
+                        <Select placeholder="Vegetable" id="category">
+                            <option value="Vegetable" <% if(Uproduct.category === "Vegetable") { %>selected<% } %>>Vegetable</option>
+                            <option value="Fruits" <% if(Uproduct.category === "Fruits") { %>selected<% } %>>Fruits</option>
+                            <option value="Cash crops" <% if(Uproduct.category === "Cash crops") { %>selected<% } %>>Cash crops</option>
+                            <option value="Food crops" <% if(Uproduct.category === "Food crops") { %>selected<% } %>>Food crops</option>
+                            <option value="Dairy" <% if(Uproduct.category === "Dairy") { %>selected<% } %>>Dairy</option>
+                            <option value="Non-veg" <% if(Uproduct.category === "Non-veg") { %>selected<% } %>>Non-veg</option>
+                        </Select>
+                    </div>
+                    <div class="space">
+                        <label for="">Price</label>
+                        <input id="price" type="text" placeholder="Enter price" value="<%= Uproduct.price %>">
+                    </div>
+                    <div class="space">
+                        <label for="">Vitamins</label>
+                        <input id="vitamins" type="text" placeholder="C" value="<%= Uproduct.vitamins %>">
+                    </div>
+                    <div class="space">
+                        <label for="">Calories</label>
+                        <input id="calories" type="text" placeholder="41" value="<%= Uproduct.calories %>">
+                    </div>
+                    <div class="space">
+                        <label for="">Soil</label>
+                        <input id="soil" type="text" placeholder="sand" value="<%= Uproduct.soil %>">
+                    </div>
+                    <div class="space">
+                        <label for="">Origin</label>
+                        <input id="origin" type="text" placeholder="Dang" value="<%= Uproduct.origin %>">
+                    </div>
+                    <div class="space">
+                        <label for="">Shell life</label>
+                        <input id="shelflife" type="text" placeholder="15 days" value="<%= Uproduct.shelflife %>">
+                    </div>
+                    <div class="space">
+                        <label for="">Availability</label>
+                        <select placeholder="Yes" id="availability">
+                            <option value="Yes" <% if (Uproduct.availability === 'Yes') { %>selected<% } %>>Yes</option>
+                            <option value="No" <% if (Uproduct.availability === 'No') { %>selected<% } %>>No</option>
+                        </select>
+                    </div>
+                    <div class="space">
+                        <label for="">Quality</label>
+                        <select placeholder="A" id="quality">
+                            <option value="A" <% if (Uproduct.quality === 'A') { %>selected<% } %>>A</option>
+                            <option value="B" <% if (Uproduct.quality === 'B') { %>selected<% } %>>B</option>
+                            <option value="C" <% if (Uproduct.quality === 'C') { %>selected<% } %>>C</option>
+                        </select>
+                    </div>
+                    <div class="space">
+                        <label for="">Size</label>
+                        <select placeholder="Small" id="size">
+                            <option value="Small" <% if (Uproduct.size === 'Small') { %>selected<% } %>>Small</option>
+                            <option value="Medium" <% if (Uproduct.size === 'Medium') { %>selected<% } %>>Medium</option>
+                            <option value="Large" <% if (Uproduct.size === 'Large') { %>selected<% } %>>Large</option>
+                        </select>
+                    </div>
+                    <div class="space">
+                        <label for="">Growm</label>
+                        <select palceholder="locally" id="grown" value="<%= Uproduct.grown %>">
+                            <option value="Locally" <% if (Uproduct.grown === 'Locally') { %>selected<% } %>>Locally</option>
+                            <option value="Imported" <% if (Uproduct.grown === 'Imported') { %>selected<% } %>>Imported</option>
+                            <option value="Greenhouse Grown" <% if (Uproduct.grown === 'Greenhouse Grown') { %>selected<% } %>>Greenhouse Grown</option>
+                            <option value="Industrail Grown" <% if (Uproduct.grown === 'Industrail Grown') { %>selected<% } %>>Industrail Grown</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="description">
+                    <label for="">Description</label>
+                    <textarea id="description" type="text"><%= Uproduct.description %></textarea>
+                </div>
+                <input type="file" class="file" id="productImg" name="productImg">
+                <img id="previewImage" src="/<%=Uproduct.productImg %>" alt="" class="preview" >
+                <button class="submit-btn" id="PostBtn" type="button" name="" value="">
+                    <div id="loading2" class="loading" style="display: none;"></div>
+                    <span id="noloading2" style="display: block;">Update</span>
+                </button>
+            </form>
+           </div>
+        </div>
+    </main>
+</body>
+<script src="/js/dashboard/index.js"></script>
+<script src="/js/toast.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- <script>
+  // Get the file input element
+  const fileInput = document.getElementById('productImg');
+
+  // Add a change event listener to the file input
+  fileInput.addEventListener('change', (event) => {
+    // Get the selected file
+    const selectedFile = event.target.files[0];
+
+    // Create a URL for the selected file
+    const previewUrl = URL.createObjectURL(selectedFile);
+
+    // Set the src attribute of the img tag to the preview URL
+    const previewImage = document.getElementById('previewImage');
+    previewImage.src = previewUrl;
+  })
+    $("#PostBtn").on("click",(e)=>{
+        e.preventDefault();
+        $('#noloading').hide();
+        $('#loading').show();
+        $("#PostBtn").prop('disabled', true);
+
+        var formData = new FormData()
+
+        var productname=$("#productname").val()
+        var categorySelect = document.getElementById("category");
+        var category = categorySelect.options[categorySelect.selectedIndex].value;
+        var qualitySelect = document.getElementById("quality")
+        var quality = qualitySelect.options[qualitySelect.selectedIndex].value;
+        var sizeSelect = document.getElementById("size")
+        var size = sizeSelect.options[sizeSelect.selectedIndex].value;
+        var grownSelect= document.getElementById("grown")
+        var grown = grownSelect.options[grownSelect.selectedIndex].value;
+        var vitamins = $("#vitamins").val()
+        var calories = $("#calories").val()
+        var price = $("#price").val()
+        var soil= $("#soil").val()
+        var origin = $("#origin").val()
+        var description = $("#description").val()
+        var productImage = $("#productImg").prop('files')[0];
+        var shelflife = $("#shelflife").val()
+        var availabilitySelect= document.getElementById("availability")
+        var availability = availabilitySelect.options[availabilitySelect.selectedIndex].value;
+
+        formData.append('productname', productname)
+        formData.append('category', category)
+        formData.append('quality', quality)
+        formData.append('size', size)
+        formData.append('grown', grown)
+        formData.append('vitamins', vitamins)
+        formData.append('calories', calories)
+        formData.append('price', price)
+        formData.append('soil', soil)
+        formData.append('origin', origin)
+        formData.append('description', description)
+        formData.append('shelflife', shelflife)
+        formData.append('availability', availability)
+        formData.append('productImg', productImage)
+
+        if (productImage==undefined || productname=="" || price==""){
+                $('#PostBtn').prop('disabled', false);
+                $('#loading').hide();
+                $('#noloading').show();
+                return Toast.fire({
+                    title: 'Error!',
+                    text: 'Please Provide product name,price and image',
+                    icon: 'error',
+                    })
+            }
+
+    console.log(productname,category,quality,size,grown, vitamins ,calories,soil,origin,description, productImage,shelflife,availability)
+    console.log(...formData)
+
+    return fetch('/dashboard/post',{
+        method: 'POST',
+        body:formData
+    }).then(res=>res.json())
+            .then(data=>{
+                if(data.title == 'failure'){
+                $('#PostBtn').prop('disabled', false);
+                $('#loading').hide();
+                $('#noloading').show();
+
+                return Toast.fire({
+                    title: 'Error!',
+                    text: 'Something went wrong',
+                    icon: 'error',
+                    })
+                }   
+                if(data.title == 'success'){
+                    Toast.fire({
+                        title: 'Success!',
+                        text: 'Product posted successfully',
+                        icon: 'success',
+                    }).then(() => {
+                        location.reload()
+                    })
+                
+            }
+            })
+  })
+</script> -->
+
+</html>

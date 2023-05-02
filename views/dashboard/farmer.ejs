@@ -29,7 +29,8 @@
                     <td class="action-menu">
                       <i class="fa-solid fa-ellipsis"></i>
                       <ul class="action-btn">
-                        <li><button type="submit" onclick="productDetails('<%= product[i].id %>')"><i class="fa-solid fa-circle-info"></i>View Details</button></li>
+                        <li><button type="submit" onclick="productDetails('<%= product[i].id %>')"><i class="fa-solid fa-circle-info"></i>View Product</button></li>
+                        <li><button type="submit" onclick="updateProduct('<%= product[i].id %>')"><i class="fa-solid fa-pen-to-square"></i>Update Product</button></li>
                         <li><button type="submit" onclick="deleteProduct('<%= product[i].id %>')"><i class="fa-solid fa-trash"></i>Delete</button></li>
                       </ul>
                     </td>
@@ -55,5 +56,39 @@
     <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap4.min.js"></script>
     <script src="/js/dashboard/index.js"></script>
     <script src="/js/dashboard/farmer.js"></script>
+    <script>
+      const deleteProduct= (id)=>{
+        const swalWithBootstrapButtons = Swal.mixin({
+          customClass: {
+            confirmButton: 'btn btn-success',
+            cancelButton: 'btn btn-danger'
+          },
+          buttonsStyling: false
+        })
+    
+        swalWithBootstrapButtons.fire({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Yes, delete it!',
+          cancelButtonText: 'No, cancel!',
+          reverseButtons: true
+        }).then((result)=>{
+          if (result.isConfirmed) {
+            location.href= "/dashboard/product/"+id+"/delete"
+          } 
+          
+        })
+      }
+      const productDetails = (id)=>{
+        location.href= "/productInfo/"+id
+      }
+
+      const updateProduct = (id)=>{
+        location.href= "/dashboard/product/update/"+id
+      }
+      
+    </script>
 </body>
 </html>

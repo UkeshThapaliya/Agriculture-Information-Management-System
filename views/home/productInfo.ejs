@@ -10,78 +10,50 @@
          <input id="id" type="text" value="<%= oneproduct.User.id%>" hidden>
          <table>
            <tr class="owners-info">
-             <td>Owners</td>
-             <td>Rohan</td>
+             <td>Owner</td>
+             <td><%= oneproduct.User.name%></td>
            </tr>
            <tr class="price-info">
              <td>Price</td>
-             <td class="price">80 Nrs</td>
+             <td class="price"><%= oneproduct.price%> Nrs</td>
            </tr>
            <tr>
              <td>Quality</td>
-             <td>C</td>
+             <td><%= oneproduct.quality%></td>
            </tr>
            <tr>
              <td>Size</td>
-             <td>Large</td>
+             <td><%= oneproduct.size%></td>
            </tr>
            <tr>
              <td>Grown</td>
-             <td>Locally</td>
+             <td><%= oneproduct.grown%></td>
            </tr>
            <tr>
              <td>Vitamins</td>
-             <td>C</td>
+             <td><%= oneproduct.vitamins%></td>
            </tr>
            <tr>
              <td>Calories</td>
-             <td>41</td>
+             <td><%= oneproduct.calories%></td>
            </tr>
            <tr>
              <td>Soil</td>
-             <td>Drained</td>
+             <td><%= oneproduct.soil%></td>
            </tr>
            <tr>
              <td>Origin</td>
-             <td>Dang</td>
+             <td><%= oneproduct.origin%></td>
            </tr>
            <tr>
              <td>Availability</td>
-             <td>Yes</td>
+             <td><%= oneproduct.availability%></td>
            </tr>
            <tr>
              <td>Shelf Life</td>
-             <td>15 days</td>
+             <td><%= oneproduct.shelflife%> days</td>
            </tr>
          </table>
-       <!-- <div class="text">
-          <div class="kxa">
-           <p class="hi">Owners</p>
-           <p>Price</p>
-           <p>Quality</p>
-           <p>Size</p>
-           <p>Growns</p>
-           <p>Vitamins</p>
-           <p>Calories</p>
-           <p>Soil</p>
-           <p>Origin</p>
-           <p>Availability:</p>
-           <p>Shelf Life</p>
-          </div>
-          <div class="timi">
-           <p class="hello"><%=oneproduct.User.name %></p>
-           <p class="red"><%=oneproduct.price %> Nrs</p>
-           <p><%=oneproduct.quality %></p>
-           <p>large</p>
-           <p>locally</p>
-           <p>C</p>
-           <p>41</p>
-           <p>Drained</p>
-           <p>Dang</p>
-           <p>Yes</p>
-           <p>15days</p>
-          </div>
-       </div>  -->
       </div>
         <div class="productinfo">
            <div class="button">

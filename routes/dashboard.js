@@ -2,18 +2,16 @@ const router =require('express').Router();
 const {User,Product,Message}=require('../models/Model')
 const {uploadFarmerImages, uploadProductImages}= require('../config/multer');
 
-// router.get('/home', async(req, res) => {
+function loggedIn(req,res,next){
+    if(req.user){
+        return next()
+    }else{
+        res.redirect('/login')
+        console.log("to the login page")
+    }
+}
 
-//     const vegetables = await Product.findAll({ where: { category: "Vegetable" },include: { model: User} })
-//     const fruits = await Product.findAll({ where: { category: "Fruits" },include: { model: User}  })
-//     const cashCrops = await Product.findAll({ where: { category: "Cash crops" } ,include: { model: User} })
-//     const foodCrops = await Product.findAll({ where: { category: "Food crops" } ,include: { model: User} })
-//     const dairyProducts = await Product.findAll({ where: { category: "Dairy" } ,include: { model: User} })
-//     const nonVegProducts = await Product.findAll({ where: { category: "Non-veg" } ,include: { model: User} })
-    
-//     res.render('dashboard/home.ejs',{user:req.user,vegetables: vegetables, fruits: fruits ,cashCrops: cashCrops, foodCrops: foodCrops, dairyProducts: dairyProducts, nonVegProducts: nonVegProducts})
-// })
-router.get('/home', async (req, res) => {
+router.get('/home',loggedIn, async (req, res) => {
     const userId = req.user.id;
     const product =await Product.findAll()
     const farmer =await User.findAll()
@@ -60,7 +58,7 @@ router.get('/home', async (req, res) => {
     });
 });
 
-router.get('/farmer', (req, res) => {
+router.get('/farmer', loggedIn,(req, res) => {
     Product.findAll({where:{UserId:req.user.id}}).then((product)=>{
         console.log(product.length)
         res.render('dashboard/farmer.ejs',{user:req.user,email:req.body.email,product})
@@ -69,11 +67,11 @@ router.get('/farmer', (req, res) => {
     })
 })
 
-router.get('/post', (req, res) => {
+router.get('/post', loggedIn,(req, res) => {
     res.render('dashboard/post.ejs',{user:req.user})
 })
 
-router.post('/post',uploadProductImages, async (req, res) => {
+router.post('/post',loggedIn,uploadProductImages, async (req, res) => {
     console.log("Post page activated")
     console.log(req.files)
 
@@ -123,16 +121,16 @@ router.post('/post',uploadProductImages, async (req, res) => {
     }
 });
 
-router.get('/message', async(req, res) => {
+router.get('/message',loggedIn, async(req, res) => {
     const message= await Message.findAll({where:{UserId:req.user.id}})
     res.render('dashboard/message.ejs',{user:req.user,message:message});
 })
 
-router.get('/setting', (req, res) => {
+router.get('/setting',loggedIn, (req, res) => {
     res.render('dashboard/setting.ejs',{user:req.user})
 })
 
-router.post('/setting',(req, res)=>{
+router.post('/setting',loggedIn,(req, res)=>{
     User.findOne({where: {email: req.body.email}}).then((user)=>{
         if (user){
             console.log(req.body)
@@ -153,4 +151,19 @@ router.post('/setting',(req, res)=>{
     })
 })
 
+router.get('/product/:id/delete',loggedIn,(req, res)=>{
+    console.log(req.params.id)
+        Product.destroy({where: {id: req.params.id}}).then(()=>{
+            console.log("product has been deleted")
+            res.redirect("back")
+        })
+
+})
+
+router.get('/product/update/:id/',loggedIn,async(req, res)=>{
+    const Uproduct = await Product.findOne({where: {id: req.params.id}})
+    console.log(Uproduct)
+    res.render('dashboard/update.ejs',{user:req.user, Uproduct:Uproduct})
+
+})
 module.exports=router;

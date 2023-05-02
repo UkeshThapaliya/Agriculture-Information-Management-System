@@ -61,7 +61,7 @@
                         <p class="price">Nrs: <%= vegetables[i].price %><span>/kg</span></p>
                     </div>
                     <p class="quantity">Origin: <%= vegetables[i].origin %> <%= vegetables[i].grown %></p>
-                    <button class="details-btn">View details</button>
+                    <button class="details-btn" onclick="productDetails('<%= vegetables[i].id %>')">View details</button>
                 </div>
             </div>
             <% } %>
@@ -82,7 +82,7 @@
                             <p class="price">Nrs: <%= fruits[i].price %><span>/kg</span></p>
                         </div>
                         <p class="quantity">Origin: <%= fruits[i].origin %> <%= fruits[i].grown %></p>
-                        <button class="details-btn">View details</button>
+                        <button class="details-btn" onclick="productDetails('<%= fruits[i].id %>')">View details</button>
                     </div>
                 </div>
                 <% } %>
@@ -103,7 +103,7 @@
                             <p class="price">Nrs: <%= cashCrops[i].price %><span>/kg</span></p>
                         </div>
                         <p class="quantity">Origin: <%= cashCrops[i].origin %> <%= cashCrops[i].grown %></p>
-                        <button class="details-btn">View details</button>
+                        <button class="details-btn" onclick="productDetails('<%= cashCrops[i].id %>')">View details</button>
                     </div>
                 </div>
                 <% } %>
@@ -124,7 +124,7 @@
                             <p class="price">Nrs: <%= foodCrops[i].price %><span>/kg</span></p>
                         </div>
                         <p class="quantity">Origin: <%= foodCrops[i].origin %> <%= foodCrops[i].grown %></p>
-                        <button class="details-btn">View details</button>
+                        <button class="details-btn" onclick="productDetails('<%= foodCrops[i].id %>')">View details</button>
                     </div>
                 </div>
                 <% } %>
@@ -145,7 +145,7 @@
                             <p class="price">Nrs: <%= dairyProducts[i].price %><span>/kg</span></p>
                         </div>
                         <p class="quantity">Origin: <%= dairyProducts[i].origin %> <%= dairyProducts[i].grown %></p>
-                        <button class="details-btn">View details</button>
+                        <button class="details-btn" onclick="productDetails('<%= dairyProducts[i].id %>')">View details</button>
                     </div>
                 </div>
                 <% } %>
@@ -166,7 +166,7 @@
                             <p class="price">Nrs: <%= nonVegProducts[i].price %><span>/kg</span></p>
                         </div>
                         <p class="quantity">Origin: <%= nonVegProducts[i].origin %> <%= nonVegProducts[i].grown %></p>
-                        <button class="details-btn">View details</button>
+                        <button class="details-btn" onclick="productDetails('<%= nonVegProducts[i].id %>')">View details</button>
                     </div>
                 </div>
                 <% } %>
@@ -175,5 +175,10 @@
     </main>
 
     <script src="/js/dashboard/index.js"></script>
+<script>
+    const productDetails = (id) => {
+    location.href= "/productInfo/"+id
+}
+</script>
 </body>
 </html>
