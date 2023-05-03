@@ -10,6 +10,7 @@
             </div>
             <form id="productForm"  enctype="multipart/form-data">
                 <div class="user">
+                    <input id="id" type="text" value="<%= Uproduct.id%>" hidden>
                     <div class="space">
                         <label for="">Product name</label>
                         <input id="productname" type="text" placeholder="Enter product name" value="<%= Uproduct.productname %>">
@@ -86,7 +87,7 @@
                     <label for="">Description</label>
                     <textarea id="description" type="text"><%= Uproduct.description %></textarea>
                 </div>
-                <input type="file" class="file" id="productImg" name="productImg">
+                <input type="file" class="file" id="productImg" name="productImg" >
                 <img id="previewImage" src="/<%=Uproduct.productImg %>" alt="" class="preview" >
                 <button class="submit-btn" id="PostBtn" type="button" name="" value="">
                     <div id="loading2" class="loading" style="display: none;"></div>
@@ -100,7 +101,7 @@
 <script src="/js/dashboard/index.js"></script>
 <script src="/js/toast.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<!-- <script>
+<script>
   // Get the file input element
   const fileInput = document.getElementById('productImg');
 
@@ -123,7 +124,7 @@
         $("#PostBtn").prop('disabled', true);
 
         var formData = new FormData()
-
+        var productid=$("#id").val()
         var productname=$("#productname").val()
         var categorySelect = document.getElementById("category");
         var category = categorySelect.options[categorySelect.selectedIndex].value;
@@ -144,6 +145,7 @@
         var availabilitySelect= document.getElementById("availability")
         var availability = availabilitySelect.options[availabilitySelect.selectedIndex].value;
 
+        formData.append('productid', productid)
         formData.append('productname', productname)
         formData.append('category', category)
         formData.append('quality', quality)
@@ -159,21 +161,21 @@
         formData.append('availability', availability)
         formData.append('productImg', productImage)
 
-        if (productImage==undefined || productname=="" || price==""){
-                $('#PostBtn').prop('disabled', false);
-                $('#loading').hide();
-                $('#noloading').show();
-                return Toast.fire({
-                    title: 'Error!',
-                    text: 'Please Provide product name,price and image',
-                    icon: 'error',
-                    })
-            }
+        // if (productImage==undefined || productname=="" || price==""){
+        //         $('#PostBtn').prop('disabled', false);
+        //         $('#loading').hide();
+        //         $('#noloading').show();
+        //         return Toast.fire({
+        //             title: 'Error!',
+        //             text: 'Please Provide product name,price and image',
+        //             icon: 'error',
+        //             })
+        //     }
 
-    console.log(productname,category,quality,size,grown, vitamins ,calories,soil,origin,description, productImage,shelflife,availability)
+    console.log(productname,category,quality,size,grown, vitamins ,calories,soil,origin,description, productImage,shelflife,availability,productid)
     console.log(...formData)
 
-    return fetch('/dashboard/post',{
+    return fetch('/dashboard/product/update',{
         method: 'POST',
         body:formData
     }).then(res=>res.json())
@@ -192,7 +194,7 @@
                 if(data.title == 'success'){
                     Toast.fire({
                         title: 'Success!',
-                        text: 'Product posted successfully',
+                        text: 'Product Updated successfully',
                         icon: 'success',
                     }).then(() => {
                         location.reload()
@@ -201,6 +203,6 @@
             }
             })
   })
-</script> -->
+</script>
 
 </html>

@@ -166,4 +166,132 @@ router.get('/product/update/:id/',loggedIn,async(req, res)=>{
     res.render('dashboard/update.ejs',{user:req.user, Uproduct:Uproduct})
 
 })
+
+// router.post('/product/update/:id/',loggedIn,uploadProductImages, async (req, res) => {
+//     console.log("Update page activated")
+//     console.log(req.files)
+
+//     const { productname, price,category, quality, size, grown, vitamins, calories, soil, origin, description ,shelflife,availability} = req.body;
+//     const UserId = req.user.id
+//     const productImg = req.files.productImg[0].path;
+
+//     try {
+//         // Create a new product instance with the form data and uploaded image path
+//         const newProduct = await Product.create({
+//             productname,
+//             category,
+//             quality,
+//             size,
+//             grown,
+//             vitamins,
+//             calories,
+//             soil,
+//             origin,
+//             description,
+//             price,
+//             productImg,
+//             UserId,
+//             shelflife,
+//             availability
+//         });
+//         if(newProduct){
+//             console.log("Post saved successfully")
+//             var data={
+//                 'title':'success',
+//             }
+//             res.json(data);
+//         }else{
+//             console.log("Post wasnot saved")
+//             var data={
+//                 'title':'failed',
+//             }
+//             res.json(data);
+//         }
+//     } catch (error) {
+//         console.error(error);
+//         // res.status(500).send('Server Error');
+//         var data={
+//             'title':'failed',
+//         }
+//         res.json(data);
+//     }
+// });
+
+router.post('/product/update', loggedIn, uploadProductImages, async (req, res) => {
+    const { productname, price, category, quality, size, grown, vitamins, calories, soil, origin, description, shelflife, availability,productImg } = req.body;
+ 
+    const UserId = req.user.id;
+    console.log(req.body);
+
+    if (req.files.productImg && req.files.productImg.length > 0) {
+        try {
+            const productImg = req.files.productImg[0].path;
+            const productId = req.body.productid;
+            const product = await Product.findByPk(productId);
+            console.log(productId);
+            if (!product) {
+                return res.status(404).json({ title: 'failed', message: 'Product not found' });
+            }
+    
+            // Update the product with the new data
+            product.productname = productname;
+            product.price = price;
+            product.category = category;
+            product.quality = quality;
+            product.size = size;
+            product.grown = grown;
+            product.vitamins = vitamins;
+            product.calories = calories;
+            product.soil = soil;
+            product.origin = origin;
+            product.description = description;
+            product.shelflife = shelflife;
+            product.availability = availability;
+            product.productImg = productImg;
+    
+            // Save the updated product
+            const updatedProduct = await product.save();
+    
+            res.json({ title: 'success', message: 'Product updated successfully' });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ title: 'failed', message: 'Server Error' });
+        }
+    } else{
+        try {
+            const productId = req.body.productid;
+            const product = await Product.findByPk(productId);
+            console.log(productId);
+            if (!product) {
+                return res.status(404).json({ title: 'failed', message: 'Product not found' });
+            }
+    
+            // Update the product with the new data
+            product.productname = productname;
+            product.price = price;
+            product.category = category;
+            product.quality = quality;
+            product.size = size;
+            product.grown = grown;
+            product.vitamins = vitamins;
+            product.calories = calories;
+            product.soil = soil;
+            product.origin = origin;
+            product.description = description;
+            product.shelflife = shelflife;
+            product.availability = availability;
+    
+            // Save the updated product
+            const updatedProduct = await product.save();
+    
+            res.json({ title: 'success', message: 'Product updated successfully' });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ title: 'failed', message: 'Server Error' });
+        }
+    }
+
+});
+
+
 module.exports=router;
