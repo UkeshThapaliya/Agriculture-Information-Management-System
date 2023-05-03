@@ -6,10 +6,17 @@
         <h1 class="header">Setting</h1>
                 <div class="sett-htm">
                     <div class="profile">
-                        <img src="/image/Group 1000005216.svg" alt="profile-img" class="enter">
+                        <div class="profile-img profilePic">
+                            <img class="img" src="/image/Group 1000005216.svg" alt="">
+                            <input type="file" name="profile" id="profile" onchange="loadProfile(event)">
+                            <label for="profile" class="upload-icon">
+                                <i class="fa-solid fa-camera"></i>
+                            </label>
+                        </div>
                         <div class="hair">
                             <h3 class="user"><%=user.name %></h3>
                             <h4 class="user-btn">Change profile picture</h4>
+                            <button type="submit" class="profileBtn">Upload</button>
                         </div>
                     </div>
                     <div class="inputfield">
