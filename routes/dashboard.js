@@ -14,7 +14,7 @@ function loggedIn(req,res,next){
 router.get('/home',loggedIn, async (req, res) => {
     const userId = req.user.id;
     const product =await Product.findAll()
-    const farmer =await User.findAll()
+    const farmer = await User.findAll({where: {role: 'farmer'}});
     const vegetables = await Product.findAll({
         where: { category: "Vegetable", userId },
         include: { model: User }
