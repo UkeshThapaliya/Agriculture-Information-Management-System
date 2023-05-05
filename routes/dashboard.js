@@ -151,6 +151,20 @@ router.post('/setting',loggedIn,(req, res)=>{
     })
 })
 
+router.post('/setting/profileImage',uploadFarmerImages, loggedIn,(req, res)=>{
+    console.log(req.files.profile[0].path)
+        console.log(req.body)
+        console.log(req.file)
+        User.update({
+            profileImg: req.files.profile[0].path
+        
+        },{where:{email:req.body.email}}
+        ).then(() => {
+            res.redirect('/dashboard/setting')
+        })
+
+})
+
 router.get('/product/:id/delete',loggedIn,(req, res)=>{
     console.log(req.params.id)
         Product.destroy({where: {id: req.params.id}}).then(()=>{

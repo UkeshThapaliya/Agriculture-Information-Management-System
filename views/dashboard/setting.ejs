@@ -5,20 +5,21 @@
         <%- include("../components/dashboard/navbar") %>
         <h1 class="header">Setting</h1>
                 <div class="sett-htm">
-                    <div class="profile">
-                        <div class="profile-img profilePic">
-                            <img class="img" src="/image/Group 1000005216.svg" alt="">
-                            <input type="file" name="profile" id="profile" onchange="loadProfile(event)">
-                            <label for="profile" class="upload-icon">
-                                <i class="fa-solid fa-camera"></i>
-                            </label>
-                        </div>
-                        <div class="hair">
-                            <h3 class="user"><%=user.name %></h3>
-                            <h4 class="user-btn">Change profile picture</h4>
-                            <button type="submit" class="profileBtn">Upload</button>
-                        </div>
+                <form class="profile" action="/dashboard/setting/profileImage" method="POST" enctype="multipart/form-data">
+                    <input type="text" name="email" id="email" value="<%=user.email %>" hidden required>
+                    <div class="profile-img profilePic">
+                        <img id="previewImage" class="img" src="/<%=user.profileImg %>" alt="">
+                        <input type="file" name="profile" id="profile" onchange="loadProfile(event)">
+                        <label for="profile" class="upload-icon">
+                        <i class="fa-solid fa-camera"></i>
+                        </label>
                     </div>
+                    <div class="hair">
+                        <h3 class="user"><%=user.name %></h3>
+                        <h4 class="user-btn">Change profile picture</h4>
+                        <button type="submit" class="profileBtn" style="display:none;">Upload</button>
+                    </div>
+                </form>
                     <div class="inputfield">
                         <label for=""class="text-btn">Email</label>
                         <input class="search" id="email" type="text" value="<%=user.email %>" disabled required>
@@ -45,6 +46,37 @@
 <script src="/js/toast.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
+function loadProfile(event) {
+  var image = document.querySelector('.profile-img img');
+  var file = event.target.files[0];
+  console.log(file)
+  var reader = new FileReader();
+
+  reader.onload = function() {
+    image.src = reader.result;
+    document.querySelector('.profileBtn').style.display = 'block';
+
+    // Create a preview image of the selected file
+    const previewUrl = reader.result;
+    const previewImage = document.getElementById('previewImage');
+    previewImage.src = previewUrl;
+  };
+
+  if (file) {
+    reader.readAsDataURL(file);
+  }
+}
+
+var input = document.getElementById('profile');
+
+input.addEventListener('change', function() {
+  if (input.value) {
+    document.querySelector('.profileBtn').removeAttribute('disabled');
+  } else {
+    document.querySelector('.profileBtn').setAttribute('disabled', true);
+  }
+})
+
 $("#changeBtn").on("click",(e)=>{
     e.preventDefault();
     $('#noloading').hide();
