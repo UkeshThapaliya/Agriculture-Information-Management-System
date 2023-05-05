@@ -40,9 +40,11 @@ app.use(passport.session());
 
 const indexRoute = require('./routes/index')
 const dashboardRoute = require('./routes/dashboard')
+const adminRoute = require("./routes/admin");
 
 app.use('/',indexRoute);
 app.use('/dashboard',dashboardRoute);
+app.use("/admin", adminRoute)
 
 
 app.listen({port:2000},async()=>{

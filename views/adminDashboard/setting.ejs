@@ -1,0 +1,136 @@
+<%- include("../components/head") %>
+<body>
+    <%- include("../components/dashboard/sidebar") %>
+    <main>
+        <%- include("../components/dashboard/navbar") %>
+        <h1 class="header">Setting</h1>
+                <div class="sett-htm">
+                <form class="profile" action="/dashboard/setting/profileImage" method="POST" enctype="multipart/form-data">
+                    <input type="text" name="email" id="email" value="<%=user.email %>" hidden required>
+                    <div class="profile-img profilePic">
+                        <img id="previewImage" class="img" src="/<%=user.profileImg %>" alt="">
+                        <input type="file" name="profile" id="profile" onchange="loadProfile(event)">
+                        <label for="profile" class="upload-icon">
+                        <i class="fa-solid fa-camera"></i>
+                        </label>
+                    </div>
+                    <div class="hair">
+                        <h3 class="user"><%=user.name %></h3>
+                        <h4 class="user-btn">Change profile picture</h4>
+                        <button type="submit" class="profileBtn" style="display:none;">Upload</button>
+                    </div>
+                </form>
+                    <div class="inputfield">
+                        <label for=""class="text-btn">Email</label>
+                        <input class="search" id="email" type="text" value="<%=user.email %>" disabled required>
+                    </div>
+                    <div class="inputfield">
+                        <label for=""class="text-btn">Name</label>
+                        <input class="search" id="name" type="text" value="<%=user.name %>">
+                    </div>
+                    <div class="inputfield">
+                        <label for=""class="text-btn">Phone Number</label>
+                        <input class="search" id="phoneNumber" type="text" value="<%=user.phoneNumber %>">
+                    </div>
+                    <div class="inputfield">
+                        <label for=""class="text-btn">Address</label>
+                        <input class="search" id="address" type="text" value="<%=user.address %>">
+                    </div>
+                    <button class="set-htm" id="changeBtn" type="button" name="" value="">
+                        <div id="loading2" class="loading" style="display: none;"></div>
+                        <span id="noloading2" style="display: block;">Change</span>
+                    </button>
+                </div>
+    </main>
+<script src="/js/dashboard/index.js"></script>
+<script src="/js/toast.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+function loadProfile(event) {
+  var image = document.querySelector('.profile-img img');
+  var file = event.target.files[0];
+  console.log(file)
+  var reader = new FileReader();
+
+  reader.onload = function() {
+    image.src = reader.result;
+    document.querySelector('.profileBtn').style.display = 'block';
+
+    // Create a preview image of the selected file
+    const previewUrl = reader.result;
+    const previewImage = document.getElementById('previewImage');
+    previewImage.src = previewUrl;
+  };
+
+  if (file) {
+    reader.readAsDataURL(file);
+  }
+}
+
+var input = document.getElementById('profile');
+
+input.addEventListener('change', function() {
+  if (input.value) {
+    document.querySelector('.profileBtn').removeAttribute('disabled');
+  } else {
+    document.querySelector('.profileBtn').setAttribute('disabled', true);
+  }
+})
+
+$("#changeBtn").on("click",(e)=>{
+    e.preventDefault();
+    $('#noloading').hide();
+    $('#loading').show();
+    $("#changeBtn").prop('disabled', true);
+
+    var email=$("#email").val()
+    var name=$("#name").val();
+    var phoneNumber=$("#phoneNumber").val()
+    var address=$("#address").val()
+    console.log(name,phoneNumber,address)
+    // console.log(name)
+    if (phoneNumber == '' || address == '' || name== ''){
+        $("#changeBtn").prop('disabled', false);
+        $('#loading').hide();
+        $('#noloading').show();
+        return Toast.fire({
+            title: 'Error!',
+            text: 'Please fill up all the required fields',
+            icon: 'error',
+        })
+    }
+    return fetch('/dashboard/setting',{
+        method: 'POST',
+        headers: {'Content-type':'application/json'},
+        body:JSON.stringify({email,phoneNumber,address,name})
+    }).then(res => res.json(res))
+    .then(data => {
+    console.log(data)
+    if(data=="Error"){
+        $('#changeBtn').prop('disabled', false);
+        $('#loading').hide();
+        $('#noloading').show();
+        return Toast.fire({
+                title: 'Error!',
+                text: 'Something went wrong',
+                icon: 'error',
+                })
+    }
+    if(data=="changesucess"){
+        $('#changeBtn').prop('disabled', false);
+        $('#loading').show();
+        $('#noloading').hide();
+
+        Toast.fire({
+                    title: 'Success!',
+                    text: 'Profile updated sucessfully',
+                    icon: 'success',
+                }).then(()=>{
+                    location.href="/dashboard/setting"
+                })
+    } 
+
+})
+})
+</script>
+</body>

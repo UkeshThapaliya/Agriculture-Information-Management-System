@@ -1,0 +1,92 @@
+<%- include("../components/head") %>
+<body>
+    <%- include("../components/dashboard/sidebar") %>
+    <main>
+        <%- include("../components/dashboard/navbar") %>
+          <section class="farmer">
+            <h1>Farmers Post</h1>
+            <table id="example" class="table table-bordered" style="width:100%">
+              <thead>
+                <tr>
+                  <th>Farmer Name</th>
+                  <th>Product Name</th>
+                  <th>Category</th>
+                  <th>Price</th>
+                  <th>Grown</th>
+                  <th>Availability</th>
+                  <th>Posted on</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% for(var i=0; i < product.length; i++){ %>
+                  <tr>
+                    <td><%=product[i].User.name%> </td>
+                    <td><%=product[i].productname%> </td>
+                    <td><%=product[i].category%></td>
+                    <td>Nrs <%=product[i].price%></td>
+                    <td><%=product[i].grown%></td> 
+                    <td><%=product[i].availability%></td>                  
+                    <td><%=product[i].createdAt.toISOString().split("T")[0]%></td>
+                    <td class="action-menu">
+                      <i class="fa-solid fa-ellipsis"></i>
+                      <ul class="action-btn">
+                        <li><button type="submit" onclick="productDetails('<%= product[i].id %>')"><i class="fa-solid fa-circle-info"></i>View Product</button></li>
+                        <li><button type="submit" onclick="deleteProduct('<%= product[i].id %>')"><i class="fa-solid fa-trash"></i>Delete</button></li>
+                      </ul>
+                    </td>
+                  </tr>
+                <% } %>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Farmer Name</th>
+                  <th>Product Name</th>
+                  <th>Category</th>
+                  <th>Price</th>
+                  <th>Grown</th>
+                  <th>Availability</th>
+                  <th>Posted on</th>
+                </tr>
+              </tfoot>
+            </table>    
+          </section>
+
+
+    </main>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap4.min.js"></script>
+    <script src="/js/dashboard/index.js"></script>
+    <script src="/js/dashboard/farmer.js"></script>
+    <script>
+      const deleteProduct= (id)=>{
+        const swalWithBootstrapButtons = Swal.mixin({
+          customClass: {
+            confirmButton: 'btn btn-success',
+            cancelButton: 'btn btn-danger'
+          },
+          buttonsStyling: false
+        })
+    
+        swalWithBootstrapButtons.fire({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Yes, delete it!',
+          cancelButtonText: 'No, cancel!',
+          reverseButtons: true
+        }).then((result)=>{
+          if (result.isConfirmed) {
+            location.href= "/dashboard/product/"+id+"/delete"
+          } 
+          
+        })
+      }
+      const productDetails = (id)=>{
+        location.href= "/productInfo/"+id
+      }
+
+    </script>
+</body>
+</html>
