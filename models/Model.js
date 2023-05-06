@@ -46,7 +46,7 @@ const Categories = db.define('Categories', {
     id: {
         allowNull: false,
         primaryKey: true,
-        autoIncrement: false,
+        autoIncrement: true,
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4
     },
