@@ -17,16 +17,12 @@ function loggedIn(req,res,next){
 }
 
 //middleware for checking the user
-function isguest(req, res, next) {
-if (req.user) {
-    if (req.user.role === 'admin') {
-    res.redirect('/admin/home');
-    } else {
-    res.redirect('/dashboard/home');
+function isguest(req, res, next){
+    if(req.user){
+        res.redirect('/dashboard/home');
+    }else{
+        next()
     }
-} else {
-    next();
-}
 }
 
 //route for the landing page or home page
